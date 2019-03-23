@@ -50,6 +50,7 @@ public class TheStage implements Initializable {
         hBox.setStyle("-fx-border-width: 2;" + "-fx-border-color:  #C3C3C3;");
         CardWarp sortingCards = new CardWarp(500, 500);
         hBox.getChildren().add(sortingCards);
+        hBox.setRotate(180);
         theShow.add(hBox, 3, 3);
         initializeToolbar(toolbar1);
         initializeToolbar(toolbar2);
