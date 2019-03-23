@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #000023;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #7B68EE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="60.0" minWidth="0.0" prefWidth="60.0" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="800.0" minWidth="600.0" prefWidth="600.0" />
@@ -31,7 +31,7 @@
         <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <LineChart fx:id="chart" legendVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #FFFFFF;" stylesheets="@../resources/ChartStylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <LineChart fx:id="chart" legendVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #4169E1;" stylesheets="@../resources/ChartStylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <xAxis>
                 <CategoryAxis label="length" side="BOTTOM" />
             </xAxis>
