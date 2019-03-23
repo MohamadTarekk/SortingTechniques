@@ -4,10 +4,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -15,6 +19,9 @@ public class TheStage implements Initializable {
 
     @FXML
     private LineChart<String, Number> chart;
+
+    @FXML
+    private GridPane theShow;
 
     @FXML
     private Pane toolbar1;
@@ -27,17 +34,43 @@ public class TheStage implements Initializable {
     @FXML
     private Pane close;
 
+    /*@FXML
+    private ImageView header1;
+    @FXML
+    private ImageView header2;*/
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        HBox hBox = new HBox();
+        hBox.setStyle("-fx-border-width: 2;" + "-fx-border-color:  #C3C3C3;");
+        CardWarp sortingCards = new CardWarp(500, 500);
+        hBox.getChildren().add(sortingCards);
+        theShow.add(hBox, 3, 3);
         initializeToolbar(toolbar1);
         initializeToolbar(toolbar2);
         initializeToolbar(toolbar3);
         initializeToolbar(toolbar4);
-        close.setOnMouseReleased(event -> {
-            ((Stage)(close.getScene().getWindow())).close();
-        });
-        
+        close.setOnMouseReleased(event -> ((Stage)(close.getScene().getWindow())).close());
+
+        ArrayList<Integer> alpha = new ArrayList<>();
+        alpha.add(13);
+        alpha.add(2);
+        alpha.add(5);
+        alpha.add(64);
+        alpha.add(98);
+        alpha.add(45);
+        alpha.add(22);
+        alpha.add(18);
+        alpha.add(88);
+        alpha.add(8);
+        alpha.add(60);
+        alpha.add(3);
+        alpha.add(15);
+        alpha.add(6);
+        alpha.add(7);
+        alpha.add(7);
+        sortingCards.visualSort(alpha);
 
         XYChart.Series<String, Number> coordinate1 = new XYChart.Series<>();
         coordinate1.getData().add(new XYChart.Data<>("1", 23));
