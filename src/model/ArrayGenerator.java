@@ -34,5 +34,9 @@ public class ArrayGenerator {
 		return step;
 	}
 	
+	public int getNumberOfSamples() {
+		return numberOfSamples;
+	}
+	
 
 }

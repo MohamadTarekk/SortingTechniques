@@ -1,6 +1,8 @@
 package controller;
 
-import model.*;
+import java.util.ArrayList;
+
+import model.ArrayGenerator;
 
 public class Main {
 
@@ -83,20 +85,49 @@ public class Main {
 		System.out.println("Time taken to sort the array = " + (end-start));
 		bubbleSort.printArray();*/
 		    
-		    ArrayGenerator generator = new ArrayGenerator(20);
-		    int[] tempArray;
-		   // for(int i = 0 ; i < generator.getToBeSorted().length ; i++) {
-		    //tempArray = new int[generator.getStep()*(i)];
-		    //System.arraycopy(generator.getToBeSorted(), 0, tempArray, 0, generator.getStep()*(i));
-		    /*tempArray = Arrays.copyOf(generator.getToBeSorted(), generator.getStep());
-		        for(int j = 0 ; j < tempArray.length ; j++)
-		            System.out.print(tempArray[j]);
-		  //  }
-		        System.out.println();
-		        System.out.println(tempArray.length);*/
-		    generator.printArray();
-		    System.out.println(generator.getToBeSorted().length);
-		    for(int i = 0 ; i < generator.getToBeSorted().length;i++)
-		        System.out.println(generator.getToBeSorted()[i]);
+	    ArrayGenerator generator = new ArrayGenerator(10000);
+	    int n = generator.getToBeSorted().length;
+	    int[] tempArray;
+	    int step = generator.getStep();
+	    generator.printArray();
+	    System.out.println();
+	   /* ArrayList<Integer> arrayList = new ArrayList<Integer>();
+	    for(int i = 0 ; i < n ; i+=step) {
+	    	for(int j = 0 ; j < i ; j++)
+	    		arrayList.add(tempArray[i]);
+	    	printArray(arrayList.toArray());
+	    }
+	    	printArray(arrayList.toArray());*/
+	   for(int i = 0 ; i < n/2 ; i++) {
+	    	tempArray = new int[step*(i+1)];
+	    	for(int j = 0 ; j < tempArray.length ; j++)
+				tempArray[j] = (int)(n*Math.random());
+	    	printArray(tempArray);
+
+	    }
+	    	    
+	    
+	   /*System.out.println(generator.getToBeSorted().length);
+	    for(int i = 0 ; i < generator.getToBeSorted().length;i++)
+	        System.out.println(generator.getToBeSorted()[i]);
+	        */
+	    
+	   // for(int i = 0 ; i < generator.getToBeSorted().length ; i++) {
+    //tempArray = new int[generator.getStep()*(i)];
+    //System.arraycopy(generator.getToBeSorted(), 0, tempArray, 0, generator.getStep()*(i));
+    /*tempArray = Arrays.copyOf(generator.getToBeSorted(), generator.getStep());
+        for(int j = 0 ; j < tempArray.length ; j++)
+            System.out.print(tempArray[j]);
+  //  }
+        System.out.println();
+        System.out.println(tempArray.length);*/
+
+	}
+	
+	public static void printArray(int[] arr) {
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(arr[i]+"\t"); 
+        System.out.println(); 
 	}
 }
