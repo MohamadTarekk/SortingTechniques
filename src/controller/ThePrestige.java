@@ -22,7 +22,7 @@ public class ThePrestige extends Application {
         Parent root = FXMLLoader.load(new File(path).toURI().toURL());
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1300, 800));
+        primaryStage.setScene(new Scene(root, 1300, 850));
         primaryStage.setResizable(false);
         primaryStage.show();
     }

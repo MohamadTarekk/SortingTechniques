@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #7B68EE;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
+<GridPane fx:id="theShow" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="820.0" prefWidth="1300.0" style="-fx-background-color: #F6F6F6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="60.0" minWidth="0.0" prefWidth="60.0" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="800.0" minWidth="600.0" prefWidth="600.0" />
@@ -25,20 +15,13 @@
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="63.0" minWidth="60.0" prefWidth="63.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="600.0" minHeight="600.0" prefHeight="600.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="500.0" minHeight="500.0" prefHeight="500.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="110.0" minHeight="110.0" prefHeight="110.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <LineChart fx:id="chart" legendVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #4169E1;" stylesheets="@../resources/ChartStylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
-            <xAxis>
-                <CategoryAxis label="length" side="BOTTOM" />
-            </xAxis>
-            <yAxis>
-                <NumberAxis label="time" side="LEFT" />
-            </yAxis>
-        </LineChart>
         <Pane fx:id="toolbar1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
         <Pane fx:id="toolbar2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
         <Pane fx:id="toolbar3" prefHeight="200.0" prefWidth="200.0" />
@@ -52,6 +35,52 @@
          </children>
         </Pane>
       <Pane fx:id="toolbar4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <children>
+              <LineChart fx:id="chart" legendVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="620.0" stylesheets="@../resources/ChartStylesheet.css">
+                  <xAxis>
+                      <CategoryAxis label="length" side="BOTTOM" />
+                  </xAxis>
+                  <yAxis>
+                      <NumberAxis label="time" side="LEFT" />
+                  </yAxis>
+              </LineChart>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <children>
+            <Button layoutX="174.0" layoutY="44.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="118.0" text="Generate" />
+            <Button layoutX="518.0" layoutY="44.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="95.0" text="Plot &amp; Sort" />
+            <ComboBox layoutX="323.0" layoutY="44.0" prefHeight="31.0" prefWidth="184.0" promptText="Sorting Technique..." />
+            <TextField layoutX="26.0" layoutY="44.0" prefHeight="31.0" prefWidth="136.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="110.0" maxWidth="500.0" minHeight="110.0" minWidth="500.0" prefHeight="110.0" prefWidth="500.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+         <children>
+            <Button layoutX="351.0" layoutY="44.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="89.0" text="Viualise" />
+            <ComboBox layoutX="66.0" layoutY="44.0" prefHeight="31.0" prefWidth="184.0" promptText="Sorting Technique..." />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="189.0" fitWidth="188.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <image>
+            <Image url="@../resources/sortingHat.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Pane prefHeight="130.0" prefWidth="86.0" />
+            <ImageView fx:id="header1" fitHeight="126.0" fitWidth="570.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Header.png" />
+               </image>
+            </ImageView>
+            <Pane prefHeight="150.0" prefWidth="45.0" />
+            <ImageView fx:id="header2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Header2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
     </children>
 </GridPane>

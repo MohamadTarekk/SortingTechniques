@@ -1,118 +1,51 @@
-package controller;
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.ColorPicker;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
-import java.util.ArrayList;
+public class Main extends Application {
 
-import model.ArrayGenerator;
-import model.QuickSort;
+	private static final int WIDTH = 600;
+	private static final int HEIGTH = 400;
 
-public class Main {
+	@Override
+	public void start(Stage primaryStage) {
+		//handling the canvas
+		final Canvas canvas = new Canvas(WIDTH, HEIGTH);
+		final GraphicsContext gc = canvas.getGraphicsContext2D();
+		gc.setFill(Color.AQUA);
+		gc.fill();
+		//Painting with MouseDragged Event
+		canvas.setOnMouseDragged(event -> gc.fillOval(event.getX(),   event.getY(), 25, 25));
+		//User a ColorPicke for Color of Painting
+		ColorPicker cp = new ColorPicker();
+		cp.setOnAction(e -> gc.setFill(cp.getValue()));
+		//Layout
+		BorderPane root = new BorderPane();
+		HBox hb = new HBox(30);
+		Button button = new Button("Clear all");
+
+		button.setOnAction(e ->
+				gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight()));
+		hb.getChildren().addAll(cp, button);
+		hb.setPrefHeight(200);
+		hb.setAlignment(Pos.CENTER);
+		root.setCenter(canvas);
+		root.setBottom(hb);
+		final Scene scene = new Scene(root);
+		primaryStage.setTitle("Hello World!");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
 
 	public static void main(String[] args) {
-		// testing heap sort
-		/*
-		int[] x = {1,2,3,5,4,6,8,-52,52,4516,622,74,12,65};
-		HeapSort myHeap = new HeapSort(x);
-		myHeap.sort();
-		myHeap.printArray();
-		myHeap.printHeap();
-		myHeap.sort();
-		myHeap.printArray();
-		myHeap.printHeap();
-		*/
-		
-		// testing insertion sort
-		/*
-		int[] y = {2,20,4,3,30};
-		InsertionSort list = new InsertionSort(y); 
-		list.push(5); 
-		list.push(20); 
-		list.push(4); 
-		list.push(3); 
-		list.push(30); 
-		System.out.println("Linked List before Sorting.."); 
-		list.printlist(list.getHead()); 
-		list.sort(list.getHead()); 
-		System.out.println("\nLinkedList After sorting"); 
-		list.printlist(list.getHead()); 
-		*/
-		
-		// testing selection sort
-		/*
-		int arr[] = {64,25,12,22,11}; 
-		SelectionSort ob = new SelectionSort(arr); 
-		ob.sort(); 
-		System.out.println("Sorted array"); 
-		ob.printArray(); 
-		*/
-		
-		// testing quick sort
-		//int[] q = {10, 7, 8, 9, 1};
-		  //  int[] m = {1 , 2 , 3, 4, 5};
-		//QuickSort quickSort = new QuickSort(q); 
-		   // long start = System.nanoTime();
-		   // quickSort.sort();
-		   // long end = System.nanoTime();
-		   // long timeInNano = end - start;
-		   // System.out.println("sorted array"); 
-		//quickSort.printArray();
-		//System.out.println("Time taken to sort the array = " + timeInNano);
-		
-		/*MergeSort mergeSort2 = new MergeSort(q);
-		mergeSort2.sort();
-		
-		
-		SelectionSort selectionSort = new SelectionSort(q);*/
-		   // selectionSort.sort();
-		//selectionSort.printArray();
-		
-		    
-		   /* MergeSort mergeSort = new MergeSort(q);
-		long start = System.nanoTime();
-		mergeSort.sort();
-		long end = System.nanoTime();
-		System.out.println("Time taken to sort the array = " + (end-start));
-		mergeSort.printArray();
-		System.out.println("------");
-		start = System.nanoTime();
-		selectionSort.sort();
-		end = System.nanoTime();
-		System.out.println("Time taken to sort the array = " + (end-start));
-		selectionSort.printArray();  */
-		
-		/*BubbleSort bubbleSort = new BubbleSort(m);
-		start = System.nanoTime();
-		bubbleSort.sort();
-		end = System.nanoTime();
-		System.out.println("Time taken to sort the array = " + (end-start));
-		bubbleSort.printArray();*/
-	
-
-		long start;
-		long end;
-	    ArrayGenerator generator = new ArrayGenerator(10);
-	    int samples = generator.getNumberOfSamples();
-	    int step = generator.getStep();
-	    QuickSort quickSort = new QuickSort(generator.getToBeSorted());
-	    start = System.nanoTime();
-	    quickSort.sort();
-	    generator.printArray();
-		end = System.nanoTime();
-		System.out.println("Time taken to sort the array = " + (end-start));
-		for(int i = 0 ; i < generator.getExtraArr2().length ; i++) {
-			System.out.print(generator.getExtraArr2()[i] + "   ");
-		}
-
-		ArrayList<Integer> nList = new ArrayList<Integer>(10);
-		ArrayList<Integer> timeList = new ArrayList<Integer>(10);
-	    
-
-
-	}
-	
-	public static void printArray(int[] arr) {
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+"\t"); 
-        System.out.println(); 
+		launch(args);
 	}
 }
