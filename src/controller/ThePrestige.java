@@ -1,7 +1,9 @@
 package controller;
 
-//import view.*;
+import java.util.Arrays;
+
 import model.*;
+//import view.*;
 
 public class ThePrestige {
 
@@ -45,10 +47,60 @@ public class ThePrestige {
         */
 		
         // testing quick sort
-        int[] q = {10, 7, 8, 9, 1, 5};
-        QuickSort quickSort = new QuickSort(q); 
-        quickSort.sort();
-        System.out.println("sorted array"); 
-        quickSort.printArray();
+        int[] q = {10, 7, 8, 9, 1};
+      //  int[] m = {1 , 2 , 3, 4, 5};
+        //QuickSort quickSort = new QuickSort(q); 
+       // long start = System.nanoTime();
+       // quickSort.sort();
+       // long end = System.nanoTime();
+       // long timeInNano = end - start;
+       // System.out.println("sorted array"); 
+        //quickSort.printArray();
+        //System.out.println("Time taken to sort the array = " + timeInNano);
+        
+        /*MergeSort mergeSort2 = new MergeSort(q);
+        mergeSort2.sort();
+        
+        
+        SelectionSort selectionSort = new SelectionSort(q);*/
+       // selectionSort.sort();
+        //selectionSort.printArray();
+
+        
+       /* MergeSort mergeSort = new MergeSort(q);
+        long start = System.nanoTime();
+        mergeSort.sort();
+        long end = System.nanoTime();
+        System.out.println("Time taken to sort the array = " + (end-start));
+        mergeSort.printArray();
+        System.out.println("------");
+        start = System.nanoTime();
+        selectionSort.sort();
+        end = System.nanoTime();
+        System.out.println("Time taken to sort the array = " + (end-start));
+        selectionSort.printArray();  */
+        
+        /*BubbleSort bubbleSort = new BubbleSort(m);
+        start = System.nanoTime();
+        bubbleSort.sort();
+        end = System.nanoTime();
+        System.out.println("Time taken to sort the array = " + (end-start));
+        bubbleSort.printArray();*/
+        
+        ArrayGenerator generator = new ArrayGenerator(20);
+        int[] tempArray;
+       // for(int i = 0 ; i < generator.getToBeSorted().length ; i++) {
+        	//tempArray = new int[generator.getStep()*(i)];
+        	//System.arraycopy(generator.getToBeSorted(), 0, tempArray, 0, generator.getStep()*(i));
+        	/*tempArray = Arrays.copyOf(generator.getToBeSorted(), generator.getStep());
+        	for(int j = 0 ; j < tempArray.length ; j++)
+        		System.out.print(tempArray[j]);
+      //  }
+        	System.out.println();
+        	System.out.println(tempArray.length);*/
+        generator.printArray();
+        System.out.println(generator.getToBeSorted().length);
+        for(int i = 0 ; i < generator.getToBeSorted().length;i++)
+        	System.out.println(generator.getToBeSorted()[i]);
 	}
 }
