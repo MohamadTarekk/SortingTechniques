@@ -18,8 +18,9 @@ import model.Sorter;
 public class TheStage implements Initializable {
 	
 	private Sorter sorter = new Sorter(100);
-	private ArrayList<Long> timeList = sorter.getTimeList();
-	private ArrayList<Integer> nList = sorter.getnList();
+	private ArrayList<Long> timeList = Sorter.getTimeList();
+	private ArrayList<Integer> nList = Sorter.getnList();
+
 
     @FXML
     private LineChart<String, Number> chart;
@@ -77,6 +78,7 @@ public class TheStage implements Initializable {
         alpha.add(7);
         sortingCards.visualSort(alpha);
 
+
         XYChart.Series<String, Number> coordinate1 = new XYChart.Series<>();
         coordinate1.getData().add(new XYChart.Data<>(nList.get(0).toString(), timeList.get(0)));
         coordinate1.getData().add(new XYChart.Data<>(nList.get(1).toString(),  timeList.get(1)));
@@ -90,6 +92,7 @@ public class TheStage implements Initializable {
         coordinate1.getData().add(new XYChart.Data<>(nList.get(9).toString(),  timeList.get(9)));
         
         coordinate1.setName("Bubble Sort");
+
         /*
         XYChart.Series<String, Number> coordinate2 = new XYChart.Series<>();
         coordinate2.getData().add(new XYChart.Data<>("1", 12));
@@ -146,8 +149,8 @@ public class TheStage implements Initializable {
         chart.getData().add(coordinate3);
         chart.getData().add(coordinate4);
         chart.getData().add(coordinate5);
-        chart.getData().add(coordinate6);
-        */
+        chart.getData().add(coordinate6);*/
+        
         chart.getData().add(coordinate1);
 
     }
