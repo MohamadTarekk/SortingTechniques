@@ -78,15 +78,15 @@ public class TheStage implements Initializable {
 
         XYChart.Series<Number, Number> coordinate1 = new XYChart.Series<>();
         coordinate1.getData().add(new XYChart.Data<>(nList.get(0), timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(1),  timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(2),  timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(3),  timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(4),  timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(5),  timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(6), timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(7),  timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(8),  timeList.get(0)));
-        coordinate1.getData().add(new XYChart.Data<>(nList.get(9),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(1),  timeList.get(1)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(2),  timeList.get(2)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(3),  timeList.get(3)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(4),  timeList.get(4)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(5),  timeList.get(5)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(6), timeList.get(6)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(7),  timeList.get(7)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(8),  timeList.get(8)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(9),  timeList.get(9)));
         
         coordinate1.setName("Bubble Sort");
         /*
