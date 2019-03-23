@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #010101;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
+    <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="60.0" minWidth="0.0" prefWidth="60.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="800.0" minWidth="600.0" prefWidth="600.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="63.0" minWidth="60.0" prefWidth="63.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="600.0" minHeight="600.0" prefHeight="600.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+    <children>
+        <LineChart fx:id="chart" legendVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #FFFFFF;" stylesheets="@../resources/ChartStylesheet.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <xAxis>
+                <CategoryAxis label="length" side="BOTTOM" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="time" side="LEFT" />
+            </yAxis>
+        </LineChart>
+        <Pane fx:id="toolbar1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" />
+        <Pane fx:id="toolbar2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+        <Pane fx:id="toolbar3" prefHeight="200.0" prefWidth="200.0" />
+        <Pane fx:id="close" prefHeight="50.0" prefWidth="60.0" GridPane.columnIndex="4">
+         <children>
+                <ImageView fitHeight="45.0" fitWidth="55.0" layoutX="2.0" layoutY="10.0">
+                    <image>
+                        <Image url="@../resources/CloseIcon.png" />
+                    </image>
+                </ImageView>
+         </children>
+        </Pane>
+      <Pane fx:id="toolbar4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #FFFFFF;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    </children>
+</GridPane>
