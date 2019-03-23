@@ -1,20 +1,26 @@
 package view;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
+import model.Sorter;
 
 public class TheStage implements Initializable {
+	
+	private Sorter sorter = new Sorter(100);
+	private ArrayList<Long> timeList = sorter.getTimeList();
+	private ArrayList<Integer> nList = sorter.getnList();
 
     @FXML
-    private LineChart<String, Number> chart;
+    private LineChart<Number, Number> chart;
 
     @FXML
     private Pane toolbar1;
@@ -39,16 +45,20 @@ public class TheStage implements Initializable {
         });
         
 
-        XYChart.Series<String, Number> coordinate1 = new XYChart.Series<>();
-        coordinate1.getData().add(new XYChart.Data<>("1", 23));
-        coordinate1.getData().add(new XYChart.Data<>("2", 3));
-        coordinate1.getData().add(new XYChart.Data<>("3", 52));
-        coordinate1.getData().add(new XYChart.Data<>("4", 36));
-        coordinate1.getData().add(new XYChart.Data<>("5", 49));
-        coordinate1.getData().add(new XYChart.Data<>("6", 15));
-        coordinate1.getData().add(new XYChart.Data<>("7", 69));
-        coordinate1.getData().add(new XYChart.Data<>("8", 48));
+        XYChart.Series<Number, Number> coordinate1 = new XYChart.Series<>();
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(0), timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(1),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(2),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(3),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(4),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(5),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(6), timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(7),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(8),  timeList.get(0)));
+        coordinate1.getData().add(new XYChart.Data<>(nList.get(9),  timeList.get(0)));
+        
         coordinate1.setName("Bubble Sort");
+        /*
         XYChart.Series<String, Number> coordinate2 = new XYChart.Series<>();
         coordinate2.getData().add(new XYChart.Data<>("1", 12));
         coordinate2.getData().add(new XYChart.Data<>("2", 0));
@@ -105,6 +115,9 @@ public class TheStage implements Initializable {
         chart.getData().add(coordinate4);
         chart.getData().add(coordinate5);
         chart.getData().add(coordinate6);
+        */
+        chart.getData().add(coordinate1);
+
     }
 
     private AtomicReference<Double> xOffset = new AtomicReference<>((double) 0);

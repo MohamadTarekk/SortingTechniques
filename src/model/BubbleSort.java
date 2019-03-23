@@ -7,7 +7,8 @@ public class BubbleSort {
     	this.arr = arr.clone();
     }
 	
-	public void sort() {
+	public long sort() {
+	    long start = System.nanoTime();
 		int n = arr.length;
 		boolean isSwapped;
 		for(int i = 0 ; i < n - 1 ; i++) {
@@ -23,6 +24,9 @@ public class BubbleSort {
 			if(!isSwapped)
 				break;
 		}
+		long end = System.nanoTime();
+		long time = end - start;
+		return time;
 	}
 	
 	
