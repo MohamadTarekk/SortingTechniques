@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #010101;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #000023;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="60.0" minWidth="0.0" prefWidth="60.0" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="800.0" minWidth="600.0" prefWidth="600.0" />
