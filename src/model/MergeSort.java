@@ -1,11 +1,18 @@
 package model;
 
+import java.util.ArrayList;
+
+import javafx.util.Pair;
+
 public class MergeSort {
-	private int[] arr;
+	public static ArrayList<Pair<Integer,Long>> mergeNTime = new ArrayList<Pair<Integer,Long>>(20);
+	private ArrayList<Integer> arr;
+	private int numberOfArrays = 10;
+	private int sortedLength = 0;
 	
-	public MergeSort(int[] arr) {
-    	this.arr = arr.clone();
-    }
+	public MergeSort(ArrayList<Integer> array) {
+    	this.arr = array;
+	}
 	
 	/* Divide and conquer algorithm
 	 * Split and Merge
@@ -13,43 +20,75 @@ public class MergeSort {
 	 */
 	
 	public void sort(){
-		mergeSort(arr, 0, arr.length);
+		int length = arr.size();
+	    long start = System.nanoTime();
+		for(int k = 0 ; k < numberOfArrays ; k++) {
+			int lengthOfNewArray = (int)(length / numberOfArrays);
+			int actualLength = lengthOfNewArray;
+			lengthOfNewArray *= (k+1);
+			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
+			sortedLength += actualLength;
+			mergeSort(arr, 0, lengthOfNewArray-1);
+			long end = System.nanoTime();
+			long time = end - start;
+			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
+			mergeNTime.add(p);
+
+		}
 	}
 	
-	private void mergeSort(int[] arr , int start, int end) {
-		if(end - start < 2)
-			return;
-		
-		int middle = (start + end) / 2;
-		mergeSort(arr, start , middle);
-		mergeSort(arr, middle , end);
-		merge(arr, start , middle ,end);
+	private void mergeSort(ArrayList<Integer> arr , int start, int end) {
+		if(start < end && (end - start) >= 1 ) {
+			int middle = (end + start) / 2;
+			mergeSort(arr, start , middle);
+			mergeSort(arr, middle + 1, end);
+			merge(arr, start , middle ,end);
+		}
 	}
 	
-	private void merge(int[] arr , int start , int middle , int end) {
+	private void merge(ArrayList<Integer> arr , int start , int middle , int end) {
 		/*If the last element in the left partition is less than or equal the first element in the right partition
 		 *This mean that all the elements of the left partition is less than the first element in the right parition
 		 *Stick the two arrays together 
-		 */
-		if(arr[middle-1] <= arr[middle])
-			return;
-		
-		int i = start;
-		int j = middle;
-		int tempIndex = 0; //Keep track where we are in the temp array
-		int[] temp = new int[end-start];
+		 */		
+		int leftIndex = start;
+		int rightIndex = middle + 1 ;
+		//int tempIndex = 0; //Keep track where we are in the temp array
+		ArrayList<Integer> temp = new ArrayList<Integer>();
 		/*
-		 * When i = mid we'll have finished traversing the left array , j = end we'll have finished traversing the right array
+		 * When leftIndex = mid we'll have finished traversing the left array , rightIndex = end we'll have finished traversing the right array
 		 * so we want to drop out
 		 */
-		while(i<middle && j<end) {
-			temp[tempIndex++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
+		while(leftIndex<=middle && rightIndex<=end) {
+			if(arr.get(leftIndex) <= arr.get(rightIndex)) {
+				temp.add(arr.get(leftIndex));
+				leftIndex++;
+			}else {
+				temp.add(arr.get(rightIndex));
+				rightIndex++;
+			}
 			/*
 			 * Write the smaller element into the temp array
-			 * We use equal to preserve the order of duplicate items
-			 */
+			 * We use equal to preserve the order of duplicate items	 */
+		}		
+		//Either of below while loop will execute
+		while(leftIndex<=middle) {
+			temp.add(arr.get(leftIndex));
+			leftIndex++;
 		}
+		while(rightIndex <= end) {
+			temp.add(arr.get(rightIndex));
+			rightIndex++;
+		}
+        int i = 0;
+        int j = start;
+        //Setting sorted array to original one
+        while(i<temp.size()){
+            arr.set(j, temp.get(i++));
+            j++;
+        }
 		/*
+		
 		 * Handling the remaining element in the array we didn't finish traversing
 		 * {32 , 34} , {33 , 36}
 		 *  {32 , 33 , 34}
@@ -64,17 +103,14 @@ public class MergeSort {
 		 * 
 		 * middle - i tell us the number of elements that we didn't copy over into the temp array from the left parition
 		 */
-		System.arraycopy(arr, i, arr, start + tempIndex, middle-i);
-		System.arraycopy(temp, 0, arr, start, tempIndex);
 	}
 	
 	
-    public void printArray()
-    {
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+"\t"); 
-        System.out.println(); 
-    }
+	
+	public void printArray() {
+        for(int Integer: arr)
+        	System.out.print(Integer + "    ");
+        System.out.println();
+	}
 	
 }

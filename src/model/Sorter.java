@@ -23,11 +23,13 @@ public class Sorter {
 		heapSort = new HeapSort(this.generator.getToBeSorted());
 		quickSort = new QuickSort(this.generator.getToBeSorted());
 		mergeSort = new MergeSort(this.generator.getToBeSorted());*/
-		Bubblesort();
 	}
 	
-	public void Bubblesort() {
+	/*public void Bubblesort() {		
 		long time;
+		bubbleSort = new BubbleSort(generator.getToBeSorted());
+		time = bubbleSort.sort();
+		
 		bubbleSort = new BubbleSort(generator.getExtraArr1());
 		time = bubbleSort.sort();
 		nList.add(generator.getExtraArr1().length);
@@ -78,7 +80,7 @@ public class Sorter {
 		nList.add(generator.getToBeSorted().length);
 		timeList.add(time);
 		
-	}
+	}*/
 
 	public static ArrayList<Integer> getnList() {
 		return nList;

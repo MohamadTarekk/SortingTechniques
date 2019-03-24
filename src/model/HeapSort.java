@@ -1,7 +1,12 @@
 package model;
 
+import java.util.ArrayList;
+
+import javafx.util.Pair;
+
 public class HeapSort {
 	
+	//private ArrayList<Pair<Integer,Long>> heapNTime = new ArrayList<Pair<Integer,Long>>(20);
 	private int[] a;
 	private int[] b;
 	private int currentArray;

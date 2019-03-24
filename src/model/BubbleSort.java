@@ -1,48 +1,59 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+import javafx.util.Pair;
+
 public class BubbleSort {
-	private int[] arr;
-	
-	public BubbleSort(int[] arr) {
-    	this.arr = arr.clone();
-    }
-	
-	public long sort() {
+	private ArrayList<Integer> arr;
+	public static ArrayList<Pair<Integer,Long>> bubbleNT = new ArrayList<Pair<Integer,Long>>(20);
+	private int numberOfArrays = 10;
+	private int sortedLength = 0;
+	public BubbleSort(ArrayList<Integer> array) {
+    	this.arr = array;
+	}
+
+	public void sort() {
+		int length = arr.size();
 	    long start = System.nanoTime();
-		int n = arr.length;
-		boolean isSwapped;
-		for(int i = 0 ; i < n - 1 ; i++) {
-			isSwapped = false;
-			for(int j = 0 ; j < n - i - 1 ; j++) {
-				if(arr[j] > arr[j+1]) {
-					swap(arr, j , j+1);
-					isSwapped = true;
+		for(int k = 0 ; k < numberOfArrays ; k++) {
+			int lengthOfNewArray = (int)(length / numberOfArrays);
+			int actualLength = lengthOfNewArray;
+			lengthOfNewArray *= (k+1);
+			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
+			sortedLength += actualLength;
+			boolean isSwapped;
+			for(int i = 0 ; i < lengthOfNewArray - 1 ; i++) {
+				isSwapped = false;
+				for(int j = 0 ; j < lengthOfNewArray - i - 1 ; j++) {
+					if(arr.get(j) > arr.get(j+1)) {
+						swap(arr, j , j+1);
+						isSwapped = true;
+					}
 				}
+	            //check if any swapping occurred in last iteration
+	            //if yes then break the loop, array is sorted at this point
+				if(!isSwapped)
+					break;
 			}
-            //check if any swapping occurred in last iteration
-            //if yes then break the loop, array is sorted at this point
-			if(!isSwapped)
-				break;
+			long end = System.nanoTime();
+			long time = end - start;
+			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
+			bubbleNT.add(p);
 		}
-		long end = System.nanoTime();
-		long time = end - start;
-		return time;
 	}
 	
 	
-	private void swap(int[] array , int i, int j) {
-		if(i == j)
-			return;
-		int swap = array[i];
-		array[i] = array[j];
-		array[j] = swap;
+	
+	
+	private void swap(ArrayList<Integer> array , int i, int j) {
+		Collections.swap(array, i, j);
 	}
 	
-    public void printArray()
-    {
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+"\t"); 
-        System.out.println(); 
-    }
+	public void printArray() {
+        for(int Integer: arr)
+        	System.out.print(Integer + "    ");
+        System.out.println();
+	}
 }

@@ -1,13 +1,40 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+import javafx.util.Pair;
+
 public class QuickSort {
+	public static ArrayList<Pair<Integer,Long>> quickNTime = new ArrayList<Pair<Integer,Long>>(20);
+	private ArrayList<Integer> arr;
+	private int numberOfArrays = 10;
+	private int sortedLength = 0;
 	
-	int[] arr;
-	
-	public QuickSort(int[] arr) {
-		this.arr = arr.clone();
+	public QuickSort(ArrayList<Integer> array) {
+    	this.arr = array;
 	}
 	
+
+
+    public void sort() {
+		int length = arr.size();
+	    long start = System.nanoTime();
+		for(int k = 0 ; k < numberOfArrays ; k++) {
+			int lengthOfNewArray = (int)(length / numberOfArrays);
+			int actualLength = lengthOfNewArray;
+			lengthOfNewArray *= (k+1);
+			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
+			sortedLength += actualLength;
+			quickSort(arr, 0, lengthOfNewArray - 1);
+			long end = System.nanoTime();
+			long time = end - start;
+			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
+			quickNTime.add(p);
+		}
+    }
+    
+    
     /* This function takes last element as pivot, 
      * places the pivot element at its correct 
      * position in sorted array, and places all 
@@ -15,60 +42,58 @@ public class QuickSort {
      * pivot and all greater elements to right 
      * of pivot 
      * */
-    int partition(int arr[], int low, int high) 
+    private int partition(ArrayList<Integer> array, int start, int end) 
     {
-        int pivot = arr[high];
-        int i = (low-1); // index of smaller element 
-        for (int j=low; j<high; j++)
-        {
-            // If current element is smaller than or equal to pivot
-            if (arr[j] <= pivot) 
-            {
-                i++; 
-                
-                // swap arr[i] and arr[j] 
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        
-        // swap arr[i+1] and arr[high] (or pivot) 
-        int temp = arr[i+1];
-        arr[i+1] = arr[high]; 
-        arr[high] = temp;
-        
-        return i+1; 
+		int pivot = array.get(end);
+		int lastSmall = start - 1;
+		for(int i = start; i <= end ; i++) {
+			if(arr.get(i) <= pivot) {
+				lastSmall++;
+				swap(array,lastSmall,i);
+			}
+		}
+		return lastSmall;
     }
-    
-    public void sort() {
-    	quicksort(arr, 0, arr.length - 1);
-    }
+    /*
+     * This version of quickSort is only good in the average case,
+     * whenever the input size is either close to being sorted, or
+     * close to being sorted in reverse order, and the input size
+     * is large, a stack overflow error will occur. This is because
+     * the pivot will be consistently either the biggest or smallest
+     * item. This means there is O(n) worst case space complexity, due to
+     * O(n) stack frames. For large input sizes, this leads to stack
+     * overflow errors.
+     *
+     * In the average case there will be only O(lg n) stack frames,
+     * hence no need to worry.
+     */
     
     /* The main function that implements QuickSort() 
      * arr[] --> Array to be sorted
      * low  --> Starting index
      * high  --> Ending index 
      * */
-    private void quicksort(int arr[], int low, int high) 
+    private void quickSort(ArrayList<Integer> arr, int start, int end) 
     {
-        if (low < high) 
-        {
-            // pi is partitioning index, arr[pi] is now at right place
-            int pi = partition(arr, low, high);
-            
-            // Recursively sort elements before partition and after partition
-            quicksort(arr, low, pi-1);
-            quicksort(arr, pi+1, high); 
-        }
-    }
+		if(start<end) {
+		/*Put the pivot in its current position , everything to its left is smaller 
+		/everything to its right is larger*/
+		int pivotIndex = partition(arr,start,end);
+		//quickSort the left sub array
+		quickSort(arr , start , pivotIndex - 1);
+		//quickSort the right sub array
+		quickSort(arr , pivotIndex + 1 , end);
+		}
+	}
     
     /* A utility function to print array of size n */
-    public void printArray()
-    {
-        int n = arr.length; 
-        for (int i=0; i<n; ++i) 
-            System.out.print(arr[i]+"\t"); 
+	private void swap(ArrayList<Integer> array , int i, int j) {
+		Collections.swap(array, i, j);
+	}
+	
+	public void printArray() {
+        for(int Integer: arr)
+        	System.out.print(Integer + "    ");
         System.out.println();
-    }
+	}
 } 

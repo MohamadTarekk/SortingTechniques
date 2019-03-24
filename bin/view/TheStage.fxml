@@ -37,12 +37,13 @@
       <Pane fx:id="toolbar4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <children>
-              <LineChart fx:id="chart" legendVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="620.0" stylesheets="@../resources/ChartStylesheet.css">
+              <LineChart fx:id="chart" legendVisible="false" createSymbols="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="620.0" stylesheets="@../resources/ChartStylesheet.css">
                   <xAxis>
-                      <CategoryAxis label="length" side="BOTTOM" />
+                      <CategoryAxis label="Number of elements" side="BOTTOM" />
                   </xAxis>
                   <yAxis>
-                      <NumberAxis label="time" side="LEFT" />
+                      <NumberAxis label="Time(ns)" side="LEFT" />
+
                   </yAxis>
               </LineChart>
          </children>
