@@ -55,6 +55,7 @@ public class TheStage implements Initializable {
         hBox.getChildren().add(sortingCards);
         hBox.setRotate(180);
         theShow.add(hBox, 3, 3);
+
         initializeToolbar(toolbar1);
         initializeToolbar(toolbar2);
         initializeToolbar(toolbar3);
