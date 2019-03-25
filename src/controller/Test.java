@@ -1,5 +1,10 @@
 package controller;
 
+import model.BubbleSort;
+import model.HeapSort;
+import model.MergeSort;
+import model.QuickSort;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -81,11 +86,11 @@ public class Test {
         System.out.println("Time taken to sort the array = " + (end-start));
         bubbleSort.printArray();*/
     	
-    	ArrayGenerator generator = new ArrayGenerator(10);
+    	ArrayGenerator generator = new ArrayGenerator(20);
     	generator.printArray();
     	System.out.println();
-    	/*BubbleSort bs = new BubbleSort(ArrayGenerator.toBeSorted);
-    	bs.sort();*/
+    	BubbleSort bs = new BubbleSort(generator.getToBeSorted());
+    	bs.sort();
     	/*SelectionSort ss = new SelectionSort(ArrayGenerator.toBeSorted);
     	ss.sort();
     	System.out.println();
@@ -94,17 +99,36 @@ public class Test {
     	is.sort();
     	System.out.println();
     	is.printArray();*/
-    	/*MergeSort ms = new MergeSort(ArrayGenerator.toBeSorted);
+    	MergeSort ms = new MergeSort(generator.getToBeSorted());
+	    long start = System.nanoTime();
     	ms.sort();
-    	System.out.println();
+		long end = System.nanoTime();
+		long time = end - start;
+		System.out.println("Time taken by merge sort =  " + time);
+
+    	/*System.out.println();
     	ms.printArray();
     	*/
-    	/*QuickSort qs = new QuickSort(ArrayGenerator.toBeSorted);
+    	QuickSort qs = new QuickSort(generator.getToBeSorted());
+	    start = System.nanoTime();
     	qs.sort();
-    	System.out.println();
-    	qs.printArray();
-    	*/
+		end = System.nanoTime();
+		time = end - start;
+		System.out.println("Time taken by quicksort sort =  " + time);
+
+
+ 
     	/*for(Pair<Integer, Long> p : InsertionSort.insertionNTime)
     		System.out.println(p);*/
+    	
+    	HeapSort hs = new HeapSort(generator.getToBeSorted());
+	    start = System.nanoTime();
+    	hs.sort();
+    	end = System.nanoTime();
+		time = end - start;
+		System.out.println("Time taken by heap sort =  " + time);
+
+
+    	
     }
 }
