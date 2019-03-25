@@ -1,10 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+
 import controller.ArrayGenerator;
 import controller.SortFactory;
 import javafx.scene.chart.XYChart;
-
-import java.util.ArrayList;
 
 public class Sorter {
 	private ArrayGenerator generator;
