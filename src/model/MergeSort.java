@@ -21,7 +21,7 @@ public class MergeSort extends Sort {
 		int length = arr.size();
 	    long start = System.nanoTime();
 		for(int k = 0 ; k < numberOfArrays ; k++) {
-			int lengthOfNewArray = (int)(length / numberOfArrays);
+			int lengthOfNewArray = (length / numberOfArrays);
 			int actualLength = lengthOfNewArray;
 			lengthOfNewArray *= (k+1);
 			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
@@ -29,7 +29,7 @@ public class MergeSort extends Sort {
 			mergeSort(arr, 0, lengthOfNewArray-1);
 			long end = System.nanoTime();
 			long time = end - start;
-			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
+			Pair<Integer, Long> p = new Pair<>(sortedLength, time);
 			NTime.add(p);
 
 		}
@@ -52,7 +52,7 @@ public class MergeSort extends Sort {
 		int leftIndex = start;
 		int rightIndex = middle + 1 ;
 		//int tempIndex = 0; //Keep track where we are in the temp array
-		ArrayList<Integer> temp = new ArrayList<Integer>();
+		ArrayList<Integer> temp = new ArrayList<>();
 		/*
 		 * When leftIndex = mid we'll have finished traversing the left array , rightIndex = end we'll have finished traversing the right array
 		 * so we want to drop out

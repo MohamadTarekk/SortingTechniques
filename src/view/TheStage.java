@@ -15,7 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.Sorter;
+import controller.Sorter;
 
 public class TheStage implements Initializable {
 
@@ -65,15 +65,51 @@ public class TheStage implements Initializable {
 
     ////////////////////////////////
     private ArrayGenerator arrayGenerator;
-    private Sorter sorter;
     private boolean readyToPlot = false;
+    private boolean readyToVisualize = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         initializeToolbar();
+    }
 
-        /*Pane hBox = new Pane();
+    public void createSetBtnClicked(){
+        if (        createSetText.getText().matches("[0-9]+")
+                && !createSetText.getText().isEmpty()
+                && !createSetText.getText().equals("0")) {
+            int i = Integer.parseInt(createSetText.getText());
+            if (i>0) {
+                arrayGenerator = new ArrayGenerator(i);
+                readyToPlot = true;
+                readyToVisualize = false;
+                techniqueCmb = initializeComboBox();
+                System.out.println("heeeeeeerreeee!!!");
+            }
+        }
+    }
+
+    public void sortBtnClicked(){
+        if (readyToPlot) {
+            chart.getData().clear();
+            String sortingTechnique = techniqueCmb.getItems().get(0);
+            Sorter sorter;
+            if (sortingTechnique.equals("All")) {
+                for (int i=1 ; i<7 ; i++) {
+                    sorter = new Sorter(arrayGenerator.getToBeSorted(), techniqueCmb.getItems().get(i));
+                    chart.getData().add(sorter.getCoordinates());
+                }
+            } else {
+                sorter = new Sorter(arrayGenerator.getToBeSorted(), sortingTechnique);
+                chart.getData().add(sorter.getCoordinates());
+            }
+            readyToPlot = false;
+            readyToVisualize = true;
+        }
+    }
+
+    public void visualizeBtnClicked(){
+                /*Pane hBox = new Pane();
         hBox.setStyle("-fx-border-width: 2;" + "-fx-border-color:  #C3C3C3;");
 
         hBox.setPrefWidth(460);
@@ -85,170 +121,15 @@ public class TheStage implements Initializable {
         hBox.getChildren().add(sortingCards);
         hBox.setRotate(180);
         theShow.add(hBox, 3, 3);
-
-        initializeToolbar(toolbar1);
-        initializeToolbar(toolbar2);
-        initializeToolbar(toolbar3);
-        initializeToolbar(toolbar4);
-        close.setOnMouseReleased(event -> ((Stage)(close.getScene().getWindow())).close());
-
-        ArrayList<Integer> alpha = new ArrayList<>();
-        alpha.add(13);
         hBox.setRotate(90);
         sortingCards.setRotate(90);
         //theShow.add(sortingCards, 4, 3);
         */
-
-
-        /*int[] alpha = new int[1000];
-        for (int i = 0; i<460; i++){
-            alpha[i] = (int) (Math.random()*360);
-        }*/
-        //HeapSort s = new HeapSort(alpha);
-        //s.sort();
-        //alpha = s.getA();
-        //ArrayList<Integer> alpha = new ArrayList<>();
-        /*alpha.add(13);
-        alpha.add(2);
-        alpha.add(5);
-        alpha.add(64);
-        alpha.add(98);
-        alpha.add(45);
-        alpha.add(22);
-        alpha.add(18);
-        alpha.add(88);
-        alpha.add(8);
-        alpha.add(60);
-        alpha.add(3);
-        alpha.add(15);
-        alpha.add(6);
-        alpha.add(7);
-        alpha.add(7);
-        for (int i = 0; i<50; i++){
-            alpha.add((int) (Math.random()*100));
-        }
-        sortingCards.visualize(alpha);
-        */
-        /*
-    	@SuppressWarnings("unused")
-        ArrayGenerator generator = new ArrayGenerator(10000);
-    	BubbleSort bubbleSort = new BubbleSort(ArrayGenerator.toBeSorted);
-    	bubbleSort.sort();
-        XYChart.Series<String, Number> coordinate1 = new XYChart.Series<>();
-        coordinate1.getData().add(new XYChart.Data<>("0" , 0))	;
-        for(int i = 0 ; i < 10 ; i++)
-        {
-			Pair<Integer, Long> p = (BubbleSort.bubbleNT.get(i));
-            coordinate1.getData().add(new XYChart.Data<>(p.getKey().toString(),  p.getValue()));
-        }
-        coordinate1.setName("Bubble Sort");
-        
-    	SelectionSort selectionSort = new SelectionSort(ArrayGenerator.toBeSorted);
-    	selectionSort.sort();
-        XYChart.Series<String, Number> coordinate2 = new XYChart.Series<>();
-        coordinate2.getData().add(new XYChart.Data<>("0" , 0))	;
-        for(int i = 0 ; i < 10 ; i++)
-        {
-			Pair<Integer, Long> p = (SelectionSort.selectionNTime.get(i));
-            coordinate2.getData().add(new XYChart.Data<>(p.getKey().toString(),  p.getValue()));
-        }
-        coordinate2.setName("Selection Sort");
-        
-    	InsertionSort insertionSort = new InsertionSort(ArrayGenerator.toBeSorted);
-    	insertionSort.sort();
-        XYChart.Series<String, Number> coordinate3 = new XYChart.Series<>();
-        coordinate3.getData().add(new XYChart.Data<>("0" , 0))	;
-        for(int i = 0 ; i < 10 ; i++)
-        {
-			Pair<Integer, Long> p = (InsertionSort.insertionNTime.get(i));
-            coordinate3.getData().add(new XYChart.Data<>(p.getKey().toString(),  p.getValue()));
-        }
-        coordinate3.setName("Insertion Sort");
-
-        
-    	MergeSort mergeSort = new MergeSort(ArrayGenerator.toBeSorted);
-    	mergeSort.sort();
-        XYChart.Series<String, Number> coordinate4 = new XYChart.Series<>();
-        coordinate4.getData().add(new XYChart.Data<>("0" , 0))	;
-        for(int i = 0 ; i < 10 ; i++)
-        {
-			Pair<Integer, Long> p = (MergeSort.mergeNTime.get(i));
-            coordinate4.getData().add(new XYChart.Data<>(p.getKey().toString(),  p.getValue()));
-        }
-        coordinate4.setName("Merge Sort");
-        
-    	QuickSort quickSort = new QuickSort(ArrayGenerator.toBeSorted);
-    	quickSort.sort();
-        XYChart.Series<String, Number> coordinate5 = new XYChart.Series<>();
-        coordinate5.getData().add(new XYChart.Data<>("0" , 0))	;
-        for(int i = 0 ; i < 10 ; i++)
-        {
-			Pair<Integer, Long> p = (QuickSort.quickNTime.get(i));
-            coordinate5.getData().add(new XYChart.Data<>(p.getKey().toString(),  p.getValue()));
-        }
-        coordinate5.setName("Quick Sort");
-
-        XYChart.Series<String, Number> rand = new XYChart.Series<>();
-        rand.getData().add(new XYChart.Data<>("0" , 0))	;
-        for(int i = 0 ; i < 50 ; i++)
-        {
-            Number a = (int) (Math.random() * 500000000);
-            Number number = i*100;
-            rand.getData().add(new XYChart.Data<>(number.toString(), a));
-        }
-        rand.setName("Random");
-        chart.getData().add(rand);
-
-        chart.getData().add(coordinate1);
-        chart.getData().add(coordinate2);
-        chart.getData().add(coordinate3);
-        chart.getData().add(coordinate4);
-        chart.getData().add(coordinate5);
-        */
-
-
-    }
-    public void createSetBtnClicked(){
-        if (        createSetText.getText().matches("[0-9]+")
-                && !createSetText.getText().isEmpty()
-                && !createSetText.getText().equals("0")) {
-            int i = Integer.parseInt(createSetText.getText());
-            if (i>0) {
-                arrayGenerator = new ArrayGenerator(i);
-                readyToPlot = true;
-                techniqueCmb = initializeComboBox();
-                System.out.println("heeeeeeerreeee!!!");
-            }
-        }
-    }
-
-    public void sortBtnClicked(){
-        chart.getData().clear();
-        String sortingTechnique = techniqueCmb.getValue();
-        sortingTechnique = "All";
-        if (sortingTechnique.equals("All")){
-            sorter = new Sorter(arrayGenerator.getToBeSorted(), "Bubble Sort");
-            chart.getData().add(sorter.getCoordinates());
-            sorter = new Sorter(arrayGenerator.getToBeSorted(), "Heap Sort");
-            chart.getData().add(sorter.getCoordinates());
-            sorter = new Sorter(arrayGenerator.getToBeSorted(), "Insertion Sort");
-            chart.getData().add(sorter.getCoordinates());
-            sorter = new Sorter(arrayGenerator.getToBeSorted(), "Merge Sort");
-            chart.getData().add(sorter.getCoordinates());
-            sorter = new Sorter(arrayGenerator.getToBeSorted(), "Quick Sort");
-            chart.getData().add(sorter.getCoordinates());
-            sorter = new Sorter(arrayGenerator.getToBeSorted(), "Selection Sort");
-            chart.getData().add(sorter.getCoordinates());
-        }else {
-            sorter = new Sorter(arrayGenerator.getToBeSorted(), sortingTechnique);
-            chart.getData().add(sorter.getCoordinates());
-        }
-        chart.setVisible(true);
     }
 
     private ComboBox<String> initializeComboBox() {
         ComboBox<String> comboBox = new ComboBox<>();
-        comboBox.getItems().addAll("Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort", "Quick Sort", "Selection Sort");
+        comboBox.getItems().addAll("All", "Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort", "Quick Sort", "Selection Sort");
         return comboBox;
     }
 
@@ -278,5 +159,4 @@ public class TheStage implements Initializable {
 
     private void refreshStage() {
     }
-
 }

@@ -13,6 +13,7 @@ public class HeapSort extends Sort {
 		sortingTechnique = "Heap Sort";
 		this.arr = array;
 	}
+
 	
 	public void buildMaxHeap(ArrayList<Integer> array , int size) {
 		for(int i = size / 2 - 1 ; i >= 0; i--) {
@@ -36,7 +37,8 @@ public class HeapSort extends Sort {
     		swap(array,index,largest);
     		heapify(array,largest,size);
     	}
-    } 
+    }
+
   
 	public void sort() 
     { 
@@ -76,11 +78,5 @@ public class HeapSort extends Sort {
 		Collections.swap(array, i, j);
 	}
 
-    public void printArray() 
-    { 
-        for(int Integer: arr)
-        	System.out.print(Integer + "    ");
-        System.out.println();
-    }
 
 }
