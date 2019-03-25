@@ -36,7 +36,7 @@ public class MergeSort extends Sort {
 	}
 	
 	private void mergeSort(ArrayList<Integer> arr , int start, int end) {
-		if(start < end && (end - start) >= 1 ) {
+		if(start < end) {
 			int middle = (end + start) / 2;
 			mergeSort(arr, start , middle);
 			mergeSort(arr, middle + 1, end);

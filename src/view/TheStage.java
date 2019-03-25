@@ -72,7 +72,8 @@ public class TheStage implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         initializeToolbar();
-        techniqueCmb.getItems().addAll("All", "Bubble Sort", "Selection Sort", "Insertion Sort", "Heap Sort", "Merge Sort", "Quick Sort");
+        techniqueCmb.getItems().addAll("All Sorting Techniques", "Bubble Sort", "Selection Sort", "Insertion Sort", "Heap Sort", "Merge Sort", "Quick Sort");
+        techniqueCmb.getSelectionModel().selectFirst();
 
     }
 
@@ -96,12 +97,13 @@ public class TheStage implements Initializable {
             chart.getData().clear();
             String sortingTechnique = techniqueCmb.getValue();
             Sorter sorter;
-            if (sortingTechnique.equals("All")) {
+            if (sortingTechnique.equals("All Sorting Techniques")) {
                 for (int i=1 ; i<7 ; i++) {
                     sorter = new Sorter(arrayGenerator.getToBeSorted(), techniqueCmb.getItems().get(i));
                     chart.getData().add(sorter.getCoordinates());
                 }
             } else {
+            	System.out.println(sortingTechnique);
                 sorter = new Sorter(arrayGenerator.getToBeSorted(), sortingTechnique);
                 chart.getData().add(sorter.getCoordinates());
             }
@@ -129,11 +131,11 @@ public class TheStage implements Initializable {
         */
     }
 
-    private ComboBox<String> initializeComboBox() {
+    /*private ComboBox<String> initializeComboBox() {
         ComboBox<String> comboBox = new ComboBox<>();
         comboBox.getItems().addAll("All", "Bubble Sort", "Heap Sort", "Insertion Sort", "Merge Sort", "Quick Sort", "Selection Sort");
         return comboBox;
-    }
+    }*/
 
     private void initializeToolbar(){
         initializeToolbarMotion(toolbar1);
