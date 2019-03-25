@@ -218,41 +218,26 @@ public class TheStage implements Initializable {
 
     public void sortBtnClicked(){
         chart.getData().clear();
-        XYChart.Series<String, Number> coordinates = new XYChart.Series<>();
-        ArrayList<XYChart.Series<String, Number>> c = new ArrayList<>(6);
         String sortingTechnique = techniqueCmb.getValue();
         sortingTechnique = "All";
         if (sortingTechnique.equals("All")){
             sorter = new Sorter(arrayGenerator.getToBeSorted(), "Bubble Sort");
-            coordinates = sorter.getCoordinates();
-            coordinates.setName("Bubble Sort");
-            c.add(coordinates);
+            chart.getData().add(sorter.getCoordinates());
             sorter = new Sorter(arrayGenerator.getToBeSorted(), "Heap Sort");
-            coordinates = sorter.getCoordinates();
-            coordinates.setName("Heap Sort");
-            c.add(coordinates);
+            chart.getData().add(sorter.getCoordinates());
             sorter = new Sorter(arrayGenerator.getToBeSorted(), "Insertion Sort");
-            coordinates = sorter.getCoordinates();
-            coordinates.setName("Insertion Sort");
-            c.add(coordinates);
+            chart.getData().add(sorter.getCoordinates());
             sorter = new Sorter(arrayGenerator.getToBeSorted(), "Merge Sort");
-            coordinates = sorter.getCoordinates();
-            coordinates.setName("Merge Sort");
-            c.add(coordinates);
+            chart.getData().add(sorter.getCoordinates());
             sorter = new Sorter(arrayGenerator.getToBeSorted(), "Quick Sort");
-            coordinates = sorter.getCoordinates();
-            coordinates.setName("Quick Sort");
-            c.add(coordinates);
+            chart.getData().add(sorter.getCoordinates());
             sorter = new Sorter(arrayGenerator.getToBeSorted(), "Selection Sort");
-            coordinates = sorter.getCoordinates();
-            coordinates.setName("Selection Sort");
-            c.add(coordinates);
-            for (XYChart.Series<String, Number> xy : c)
-                chart.getData().add(xy);
+            chart.getData().add(sorter.getCoordinates());
         }else {
             sorter = new Sorter(arrayGenerator.getToBeSorted(), sortingTechnique);
             chart.getData().add(sorter.getCoordinates());
         }
+        chart.setVisible(true);
     }
 
     private ComboBox<String> initializeComboBox() {
