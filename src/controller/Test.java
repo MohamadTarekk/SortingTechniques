@@ -86,7 +86,7 @@ public class Test {
         System.out.println("Time taken to sort the array = " + (end-start));
         bubbleSort.printArray();*/
     	
-    	ArrayGenerator generator = new ArrayGenerator(20);
+    	ArrayGenerator generator = new ArrayGenerator(10);
     	generator.printArray();
     	System.out.println();
     	BubbleSort bs = new BubbleSort(generator.getToBeSorted());
@@ -102,6 +102,7 @@ public class Test {
     	MergeSort ms = new MergeSort(generator.getToBeSorted());
 	    long start = System.nanoTime();
     	ms.sort();
+    	ms.printArray();
 		long end = System.nanoTime();
 		long time = end - start;
 		System.out.println("Time taken by merge sort =  " + time);
@@ -112,6 +113,7 @@ public class Test {
     	QuickSort qs = new QuickSort(generator.getToBeSorted());
 	    start = System.nanoTime();
     	qs.sort();
+    	qs.printArray();
 		end = System.nanoTime();
 		time = end - start;
 		System.out.println("Time taken by quicksort sort =  " + time);
@@ -124,6 +126,7 @@ public class Test {
     	HeapSort hs = new HeapSort(generator.getToBeSorted());
 	    start = System.nanoTime();
     	hs.sort();
+    	hs.printArray();
     	end = System.nanoTime();
 		time = end - start;
 		System.out.println("Time taken by heap sort =  " + time);

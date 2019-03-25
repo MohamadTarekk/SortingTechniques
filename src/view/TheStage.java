@@ -72,6 +72,8 @@ public class TheStage implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         initializeToolbar();
+        techniqueCmb.getItems().addAll("All", "Bubble Sort", "Selection Sort", "Insertion Sort", "Heap Sort", "Merge Sort", "Quick Sort");
+
     }
 
     public void createSetBtnClicked(){
@@ -83,7 +85,7 @@ public class TheStage implements Initializable {
                 arrayGenerator = new ArrayGenerator(i);
                 readyToPlot = true;
                 readyToVisualize = false;
-                techniqueCmb = initializeComboBox();
+                //techniqueCmb = initializeComboBox();
                 System.out.println("heeeeeeerreeee!!!");
             }
         }
@@ -92,7 +94,7 @@ public class TheStage implements Initializable {
     public void sortBtnClicked(){
         if (readyToPlot) {
             chart.getData().clear();
-            String sortingTechnique = techniqueCmb.getItems().get(0);
+            String sortingTechnique = techniqueCmb.getValue();
             Sorter sorter;
             if (sortingTechnique.equals("All")) {
                 for (int i=1 ; i<7 ; i++) {
