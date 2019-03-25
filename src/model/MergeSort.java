@@ -8,7 +8,8 @@ import javafx.util.Pair;
 public class MergeSort extends Sort {
 
 	public MergeSort(ArrayList<Integer> array) {
-    	this.arr = array;
+		sortingTechnique = "Merge Sort";
+		this.arr = array;
 	}
 	
 	/* Divide and conquer algorithm

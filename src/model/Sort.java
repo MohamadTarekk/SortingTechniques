@@ -11,6 +11,7 @@ public abstract class Sort {
     protected ArrayList<Pair<Integer,Long>> NTime = new ArrayList<Pair<Integer,Long>>(20);
     protected int numberOfArrays = 10;
     protected int sortedLength = 0;
+    protected String sortingTechnique;
 
     public void sort(){}
 
@@ -21,6 +22,7 @@ public abstract class Sort {
         {
             coordinates.getData().add(new XYChart.Data<>(p.getKey().toString(),  p.getValue()));
         }
+        coordinates.setName(sortingTechnique);
         return coordinates;
     }
 }

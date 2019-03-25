@@ -9,7 +9,8 @@ import javafx.util.Pair;
 public class BubbleSort extends Sort {
 
 	public BubbleSort(ArrayList<Integer> array) {
-    	this.arr = array;
+    	sortingTechnique = "Bubble Sort";
+		this.arr = array;
 	}
 
 	public void sort() {
