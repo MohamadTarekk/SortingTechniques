@@ -31,6 +31,7 @@ public class InsertionSort extends Sort {
 	            }
 	            arr.set(i ,newElement);
 	        }
+	        
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);

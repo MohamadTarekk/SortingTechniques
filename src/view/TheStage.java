@@ -1,7 +1,10 @@
 package view;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.collections.ObservableListBase;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
+
+import controller.ArrayGenerator;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -10,17 +13,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.image.*;
 import javafx.stage.Stage;
-import javafx.util.Pair;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-import java.util.concurrent.atomic.AtomicReference;
-import controller.*;
-import model.*;
+import model.Sorter;
 
 public class TheStage implements Initializable {
 
@@ -88,6 +85,17 @@ public class TheStage implements Initializable {
         CardWarp sortingCards = new CardWarp(460, 360);
         hBox.getChildren().removeAll();
         hBox.getChildren().add(sortingCards);
+        hBox.setRotate(180);
+        theShow.add(hBox, 3, 3);
+
+        initializeToolbar(toolbar1);
+        initializeToolbar(toolbar2);
+        initializeToolbar(toolbar3);
+        initializeToolbar(toolbar4);
+        close.setOnMouseReleased(event -> ((Stage)(close.getScene().getWindow())).close());
+
+        ArrayList<Integer> alpha = new ArrayList<>();
+        alpha.add(13);
         hBox.setRotate(90);
         sortingCards.setRotate(90);
         //theShow.add(sortingCards, 4, 3);
