@@ -3,13 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import controller.ArrayGenerator;
 import javafx.util.Pair;
 
-public class BubbleSort {
-	private ArrayList<Integer> arr;
-	public static ArrayList<Pair<Integer,Long>> bubbleNT = new ArrayList<Pair<Integer,Long>>(20);
-	private int numberOfArrays = 10;
-	private int sortedLength = 0;
+public class BubbleSort extends Sort {
+
 	public BubbleSort(ArrayList<Integer> array) {
     	this.arr = array;
 	}
@@ -40,7 +38,7 @@ public class BubbleSort {
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
-			bubbleNT.add(p);
+			NTime.add(p);
 		}
 	}
 	

@@ -11,31 +11,45 @@ import java.util.Collections;
 class CardWarp extends Canvas {
 
     private final GraphicsContext gc;
+    private final double canvasWidth;
+    private final double canvasHeight;
 
     CardWarp(double width, double height){
         this.setWidth(width);
         this.setHeight(height);
+        canvasWidth = width;
+        canvasHeight = height;
         gc = this.getGraphicsContext2D();
         gc.setFill(Color.RED);
         gc.fill();
         //Painting with MouseDragged Event
-        this.setOnMouseDragged(event -> gc.fillOval(event.getX(),   event.getY(), 25, 25));
+        //this.setOnMouseDragged(event -> gc.fillOval(event.getX(),   event.getY(), 25, 25));
     }
 
-    void visualSort(ArrayList<Integer> list){
-        gc.clearRect(0, 0, this.getWidth(), this.getHeight());
+    void visualize(ArrayList<Integer> list){
+        gc.setFill(Color.WHITE);
+        gc.fill();
+        gc.fillRect(0, 0, this.getWidth(), this.getHeight());
+        //gc.clearRect(0,0,this.getWidth(),this.getHeight());
         int step;
         int width;
-        if (list.size() <= 500) {
+        if (list.size() <= canvasWidth) {
             step = 1;
-            width = 500/list.size();
+            width = (int) (canvasWidth/list.size());
         }else{
-            step = (list.size()/500);
+            step = (int) (list.size()/canvasWidth);
+            //System.out.println(step);
             width = 1;
         }
-        int height = 600 / Collections.max(list);
+        int height = (int) (canvasHeight / Collections.max(list));
+        Rectangle rectangle = new Rectangle();
         for (int i=0 ; i<list.size() ; i+=step){
-            drawRectangle(new Rectangle(i*width, 0, width, list.get(i)*height));
+            rectangle.setX(i*width);
+            rectangle.setY(0);
+            rectangle.setWidth(width);
+            rectangle.setHeight(height * list.get(i));
+            drawRectangle(rectangle);
+            //System.out.println(i+"\t");
         }
     }
 

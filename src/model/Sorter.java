@@ -1,28 +1,34 @@
 package model;
 
+import controller.ArrayGenerator;
+import controller.SortFactory;
+import javafx.scene.chart.XYChart;
+
 import java.util.ArrayList;
 
 public class Sorter {
 	private ArrayGenerator generator;
 	public static ArrayList<Integer> nList = new ArrayList<Integer>(10);
 	public static ArrayList<Long> timeList = new ArrayList<Long>(10);
-	BubbleSort bubbleSort;
-	InsertionSort insertionSort;
-	SelectionSort selectionSort;
-	HeapSort heapSort;
-	QuickSort quickSort;
-	MergeSort mergeSort;
+	private Sort sort;
 	
 	
-	
-	public Sorter(int numberOfSamples) {
-		generator = new ArrayGenerator(numberOfSamples);
+	public Sorter(ArrayList<Integer> array, String sortingTechnique) {
+		sort = SortFactory.createNewSort(array, sortingTechnique);
+		if (sort != null) {
+			sort.sort();
+		}
+		//generator = new ArrayGenerator(numberOfSamples);
 		/*bubbleSort = new BubbleSort(this.generator.getToBeSorted());
 		insertionSort = new InsertionSort(this.generator.getToBeSorted());
 		selectionSort = new SelectionSort(this.generator.getToBeSorted());
 		heapSort = new HeapSort(this.generator.getToBeSorted());
 		quickSort = new QuickSort(this.generator.getToBeSorted());
 		mergeSort = new MergeSort(this.generator.getToBeSorted());*/
+	}
+
+	public XYChart.Series<String, Number> getCoordinates(){
+		return sort.getCoordinates();
 	}
 	
 	/*public void Bubblesort() {		

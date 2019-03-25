@@ -1,12 +1,16 @@
-package model;
+package controller;
 
 import java.util.ArrayList;
 
 public class ArrayGenerator {
 	
 	public static int numberOfSamples;
-	public static ArrayList<Integer> toBeSorted;	
+	private ArrayList<Integer> toBeSorted;
 	public static ArrayList<Integer> copytoBeSorted;
+
+	public ArrayList<Integer> getToBeSorted() {
+		return toBeSorted;
+	}
 
 	public ArrayGenerator(int numberOfSamples) {
 		ArrayGenerator.numberOfSamples = numberOfSamples;

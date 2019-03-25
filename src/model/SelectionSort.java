@@ -3,15 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import controller.ArrayGenerator;
 import javafx.util.Pair;
 
-public class SelectionSort {
-	public static ArrayList<Pair<Integer,Long>> selectionNTime = new ArrayList<Pair<Integer,Long>>(20);
-	private ArrayList<Integer> arr;
-	private int numberOfArrays = 10;
-	private int sortedLength = 0;
+public class SelectionSort extends Sort {
 
-	
 	public SelectionSort(ArrayList<Integer> array) {
     	this.arr = array;
     }
@@ -40,7 +36,7 @@ public class SelectionSort {
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
-			selectionNTime.add(p);
+			NTime.add(p);
 		}
     }
     
