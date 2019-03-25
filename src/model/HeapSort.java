@@ -9,7 +9,8 @@ public class HeapSort extends Sort {
 	
 	public HeapSort(int[] arr) {
 		//a = buildHeap(arr);
-		buildHeap(arr);
+        sortingTechnique = "Heap Sort";
+        buildHeap(arr);
 		b = a.clone();
 		currentArray = 1;
 	}

@@ -9,7 +9,8 @@ import javafx.util.Pair;
 public class QuickSort extends Sort {
 
 	public QuickSort(ArrayList<Integer> array) {
-    	this.arr = array;
+		sortingTechnique = "Quick Sort";
+		this.arr = array;
 	}
 	
 

@@ -9,7 +9,8 @@ import javafx.util.Pair;
 public class SelectionSort extends Sort {
 
 	public SelectionSort(ArrayList<Integer> array) {
-    	this.arr = array;
+		sortingTechnique = "Selection Sort";
+		this.arr = array;
     }
 	
 	public void sort()

@@ -8,7 +8,8 @@ import javafx.util.Pair;
 public class InsertionSort extends Sort {
 
 	public InsertionSort(ArrayList<Integer> array) {
-    	this.arr = array;
+		sortingTechnique = "Insertion Sort";
+		this.arr = array;
 	}
 
 	public void sort() {
