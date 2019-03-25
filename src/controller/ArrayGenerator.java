@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class ArrayGenerator {
 	
-	public static int numberOfSamples;
+	private int numberOfSamples;
 	private ArrayList<Integer> toBeSorted;
-	public static ArrayList<Integer> copytoBeSorted;
+	private static ArrayList<Integer> copyToBeSorted;
 
 	public ArrayList<Integer> getToBeSorted() {
 		return toBeSorted;
 	}
 
 	public ArrayGenerator(int numberOfSamples) {
-		ArrayGenerator.numberOfSamples = numberOfSamples;
-		toBeSorted = new ArrayList<Integer>(numberOfSamples);
-		copytoBeSorted = new ArrayList<Integer>(numberOfSamples);
+		this.numberOfSamples = numberOfSamples;
+		toBeSorted = new ArrayList<>(numberOfSamples);
+		copyToBeSorted = new ArrayList<>(numberOfSamples);
 		randomizeArray();
 	}
 	
@@ -24,26 +24,19 @@ public class ArrayGenerator {
 		for(int i = 0 ; i < numberOfSamples ; i++) {
 			int random = (int)(Math.random() * numberOfSamples);
 			toBeSorted.add(random);
-			copytoBeSorted.add(toBeSorted.get(i));
+			copyToBeSorted.add(toBeSorted.get(i));
 		}
 	}
 	
 	public static ArrayList<Integer> regenerateSameArray(ArrayList<Integer> arr,int start, int end) {
 		for(int i = start; i < end; i++) {
-			arr.set(i,copytoBeSorted.get(i));
+			arr.set(i,copyToBeSorted.get(i));
 		}
 		return arr;
 	}
 		
-	public void printArray() {
+	void printArray() {
         for(int Integer: toBeSorted)
         	System.out.print(Integer + "    ");
 	}
-	
-
-	public int getNumberOfSamples() {
-		return numberOfSamples;
-	}
-	
-
 }

@@ -4,8 +4,8 @@ import model.*;
 
 import java.util.ArrayList;
 
-public class SortFactory {
-    public static Sort createNewSort(ArrayList<Integer> arrayList,String type) {
+class SortFactory {
+    static Sort createNewSort(ArrayList<Integer> arrayList, String type) {
         switch (type) {
             case "Bubble Sort":
                 return new BubbleSort(arrayList);

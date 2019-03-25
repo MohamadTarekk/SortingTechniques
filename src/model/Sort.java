@@ -8,10 +8,10 @@ import java.util.ArrayList;
 public abstract class Sort {
 
     protected ArrayList<Integer> arr;
-    protected ArrayList<Pair<Integer,Long>> NTime = new ArrayList<Pair<Integer,Long>>(20);
-    protected int numberOfArrays = 10;
-    protected int sortedLength = 0;
-    protected String sortingTechnique;
+    ArrayList<Pair<Integer,Long>> NTime = new ArrayList<>(20);
+    int numberOfArrays = 10;
+    int sortedLength = 0;
+    String sortingTechnique;
 
     public void sort(){}
 

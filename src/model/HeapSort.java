@@ -9,8 +9,7 @@ public class HeapSort extends Sort {
 	
 	public HeapSort(int[] arr) {
 		//a = buildHeap(arr);
-        sortingTechnique = "Heap Sort";
-        buildHeap(arr);
+		buildHeap(arr);
 		b = a.clone();
 		currentArray = 1;
 	}
@@ -27,7 +26,7 @@ public class HeapSort extends Sort {
     /* To heapify a subtree rooted with node i which is 
      * an index in arr[]. n is size of heap 
 	 * */
-    private void heapify(int arr[], int n, int i) 
+    private void heapify(int arr[], int n, int i)
     { 
         int largest = i; // Initialize largest as root 
         int l = 2*i + 1; // left = 2*i + 1 
@@ -92,13 +91,13 @@ public class HeapSort extends Sort {
     public void printArray() 
     { 
         if(currentArray == 1) {
-	    	int n = b.length; 
-	        for (int i=0; i<n; ++i) 
-	            System.out.print(b[i]+"\t"); 
+	    	int n = b.length;
+	        for (int i=0; i<n; ++i)
+	            System.out.print(b[i]+"\t");
 	    }else {
-        	int n = a.length; 
-	        for (int i=0; i<n; ++i) 
-	            System.out.print(a[i]+"\t"); 
+        	int n = a.length;
+	        for (int i=0; i<n; ++i)
+	            System.out.print(a[i]+"\t");
 	    }
         System.out.println();
     }
@@ -107,13 +106,13 @@ public class HeapSort extends Sort {
     public void printHeap() 
     { 
         if(currentArray == 1) {
-	    	int n = a.length; 
-	        for (int i=0; i<n; ++i) 
-	            System.out.print(a[i]+"\t"); 
+	    	int n = a.length;
+	        for (int i=0; i<n; ++i)
+	            System.out.print(a[i]+"\t");
 	    }else {
-        	int n = b.length; 
-	        for (int i=0; i<n; ++i) 
-	            System.out.print(b[i]+"\t"); 
+        	int n = b.length;
+	        for (int i=0; i<n; ++i)
+	            System.out.print(b[i]+"\t");
 	    }
         System.out.println();
     }

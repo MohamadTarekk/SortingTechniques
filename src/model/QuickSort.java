@@ -19,7 +19,7 @@ public class QuickSort extends Sort {
 		int length = arr.size();
 	    long start = System.nanoTime();
 		for(int k = 0 ; k < numberOfArrays ; k++) {
-			int lengthOfNewArray = (int)(length / numberOfArrays);
+			int lengthOfNewArray = (length / numberOfArrays);
 			int actualLength = lengthOfNewArray;
 			lengthOfNewArray *= (k+1);
 			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
@@ -27,7 +27,7 @@ public class QuickSort extends Sort {
 			quickSort(arr, 0, lengthOfNewArray - 1);
 			long end = System.nanoTime();
 			long time = end - start;
-			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
+			Pair<Integer, Long> p = new Pair<>(sortedLength, time);
 			NTime.add(p);
 		}
     }
