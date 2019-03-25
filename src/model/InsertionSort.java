@@ -2,14 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
+import controller.ArrayGenerator;
 import javafx.util.Pair;
 
-public class InsertionSort {
-	private ArrayList<Integer> arr;
-	public static ArrayList<Pair<Integer,Long>> insertionNTime = new ArrayList<Pair<Integer,Long>>(20);
-	private int numberOfArrays = 10;
-	private int sortedLength = 0;
-	
+public class InsertionSort extends Sort {
+
 	public InsertionSort(ArrayList<Integer> array) {
     	this.arr = array;
 	}
@@ -38,7 +35,7 @@ public class InsertionSort {
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
-			insertionNTime.add(p);
+			NTime.add(p);
 		}
 	}
 	

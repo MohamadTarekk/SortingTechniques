@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javafx.util.Pair;
 
-public class HeapSort {
+public class HeapSort extends Sort {
 	
 	//private ArrayList<Pair<Integer,Long>> heapNTime = new ArrayList<Pair<Integer,Long>>(20);
 	private int[] a;
@@ -119,5 +119,9 @@ public class HeapSort {
 	            System.out.print(b[i]+"\t"); 
 	    }
         System.out.println();
-    } 
+    }
+
+    public int[] getA(){
+        return a;
+    }
 }

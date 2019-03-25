@@ -1,6 +1,5 @@
 package controller;
 
-import model.ArrayGenerator;
 import model.QuickSort;
 
 public class Test {
@@ -102,11 +101,11 @@ public class Test {
     	System.out.println();
     	ms.printArray();
     	*/
-    	QuickSort qs = new QuickSort(ArrayGenerator.toBeSorted);
+    	/*QuickSort qs = new QuickSort(ArrayGenerator.toBeSorted);
     	qs.sort();
     	System.out.println();
     	qs.printArray();
-    	
+    	*/
     	/*for(Pair<Integer, Long> p : InsertionSort.insertionNTime)
     		System.out.println(p);*/
     }
