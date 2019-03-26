@@ -69,8 +69,9 @@ public class TheStage implements Initializable {
     ////////////////////////////////
     private ArrayGenerator arrayGenerator;
     private boolean readyToPlot = false;
-    private boolean readyToVisualize = false;
-    private boolean newSelection = false;
+    //private boolean readyToVisualize = false;
+    //private boolean newSelection = false;
+    //private boolean plottedBefore = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -83,12 +84,15 @@ public class TheStage implements Initializable {
             }
         });
         techniqueCmb.getItems().addAll("All Sorting Techniques", "Bubble Sort", "Selection Sort", "Insertion Sort", "Heap Sort", "Merge Sort", "Quick Sort");
-        techniqueCmb.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
+        techniqueCmb.getSelectionModel().selectFirst();
+        /*techniqueCmb.getSelectionModel().selectedItemProperty().addListener( (options, oldValue, newValue) -> {
             //magicianPane.setVisible(true);
             //sortingHat.setVisible(false);
-            if (readyToPlot)
-                newSelection = true;
+            plottedBefore = false;
+            newSelection = true;
         });
+        newSelection = true;
+        */
         sortingHat.setVisible(false);
     }
 
@@ -97,23 +101,24 @@ public class TheStage implements Initializable {
                 && !createSetText.getText().isEmpty()
                 && !createSetText.getText().equals("0")) {
             int i = Integer.parseInt(createSetText.getText());
-            if (i>0 && i<=20000) {
+            if (i>0) {
                 arrayGenerator = new ArrayGenerator(i);
                 readyToPlot = true;
-                newSelection = false;
-                readyToVisualize = false;
+                //newSelection = false;
+                //readyToVisualize = false;
                 //techniqueCmb = initializeComboBox();
                 System.out.println("heeeeeeerreeee!!!");
             }
+            //plottedBefore = false;
             //magicianPane.setVisible(true);
             //sortingHat.setVisible(false);
-        }else {
+        }/*else {
             readyToPlot = false;
-        }
+        }*/
     }
 
     public void sortBtnClicked(){
-        if (readyToPlot && newSelection) {
+        if (readyToPlot) {
             chart.getData().clear();
             String sortingTechnique = techniqueCmb.getValue();
             Sorter sorter;
@@ -127,8 +132,8 @@ public class TheStage implements Initializable {
                 sorter = new Sorter(arrayGenerator.getToBeSorted(), sortingTechnique);
                 chart.getData().add(sorter.getCoordinates());
             }
-            newSelection = false;
-            readyToVisualize = true;
+            //readyToVisualize = true;
+            //plottedBefore = true;
             //magicianPane.setVisible(false);
             //sortingHat.setVisible(true);
         }
