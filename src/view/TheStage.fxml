@@ -36,11 +36,6 @@
 
             </yAxis>
         </LineChart>
-      <ImageView fx:id="sortingHat" fitHeight="179.0" fitWidth="188.0" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="1">
-         <image>
-            <Image url="@../resources/sortingHat.png" />
-         </image>
-      </ImageView>
       <HBox alignment="CENTER_LEFT" maxHeight="130.0" minHeight="130.0" prefHeight="130.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <children>
             <Pane prefHeight="130.0" prefWidth="35.0" />
@@ -78,7 +73,7 @@
                   <Pane maxWidth="35.0" minWidth="80.0" prefHeight="200.0" prefWidth="35.0" />
                   <TextField fx:id="createSetText" prefHeight="30.0" prefWidth="185.0" />
                   <Pane maxWidth="50.0" minWidth="50.0" prefHeight="200.0" prefWidth="50.0" />
-                  <Button fx:id="createSetBtn" mnemonicParsing="false" onAction="#createSetBtnClicked" prefHeight="31.0" prefWidth="140.0" text="Choose a number" />
+                  <Button fx:id="createSetBtn" mnemonicParsing="false" onAction="#createSetBtnClicked" prefHeight="31.0" prefWidth="140.0" text="Generate set" />
                </children>
             </HBox>
          </children>
@@ -92,7 +87,7 @@
          <children>
               <Pane fx:id="toolbar2" maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #0000b3;">
                <children>
-                  <Label layoutX="23.0" layoutY="6.0" prefHeight="42.0" prefWidth="251.0" text="Sorting Hat ....." textFill="WHITE">
+                  <Label layoutX="23.0" layoutY="6.0" prefHeight="42.0" prefWidth="251.0" text="Wizard Hat ....." textFill="WHITE">
                      <font>
                         <Font name="Agency FB" size="40.0" />
                      </font>
@@ -185,7 +180,7 @@
         </Pane>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+      <Pane fx:id="magicianPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
          <children>
             <ImageView fitHeight="312.0" fitWidth="258.0" layoutX="51.0" layoutY="-8.0">
                <image>
@@ -206,11 +201,16 @@
                   </ImageView>
                </children>
             </Pane>
-            <Label layoutX="75.0" layoutY="392.0" text="Get ready to do some">
+            <Label layoutX="72.0" layoutY="391.0" text="You will witness some">
                <font>
                   <Font name="Agency FB Bold" size="29.0" />
                </font>
             </Label>
+            <ImageView fx:id="sortingHat" fitHeight="379.0" fitWidth="360.0" layoutY="41.0" visible="false">
+               <image>
+                  <Image url="@../resources/sortingHat.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane maxHeight="100.0" maxWidth="360.0" minHeight="100.0" minWidth="360.0" prefHeight="100.0" prefWidth="360.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
