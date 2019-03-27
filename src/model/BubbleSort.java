@@ -22,6 +22,7 @@ public class BubbleSort extends Sort {
 			lengthOfNewArray *= (k+1);
 			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
 			sortedLength += actualLength;
+			
 			boolean isSwapped;
 			for(int i = 0 ; i < lengthOfNewArray - 1 ; i++) {
 				isSwapped = false;
@@ -36,6 +37,7 @@ public class BubbleSort extends Sort {
 				if(!isSwapped)
 					break;
 			}
+			
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<>(sortedLength, time);

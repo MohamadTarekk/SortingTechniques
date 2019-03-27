@@ -24,7 +24,9 @@ public class QuickSort extends Sort {
 			lengthOfNewArray *= (k+1);
 			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
 			sortedLength += actualLength;
+			
 			quickSort(arr, 0, lengthOfNewArray - 1);
+			
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<>(sortedLength, time);
@@ -45,13 +47,26 @@ public class QuickSort extends Sort {
 		int pivot = array.get(end);
 		int lastSmall = start - 1;
 		for(int i = start; i <= end ; i++) {
+            // If current element is smaller than or 
+            // equal to pivot
 			if(arr.get(i) <= pivot) {
 				lastSmall++;
 				swap(array,lastSmall,i);
 			}
 		}
+		//swap(array,end,lastSmall + 1);
+		// Return the place of pivot
 		return lastSmall;
     }
+    
+	// Generates Random Pivot, swaps pivot with 
+	// end element and calls the partition function 
+    private int randomizedPartition(ArrayList<Integer> array , int start , int end) {
+		int randomPivotIndex =  (int)(Math.random()*((end-start)+1))+start;
+		swap(array,end,randomPivotIndex);
+		return partition(array,start,end);
+    }
+    
     /*
      * This version of quickSort is only good in the average case,
      * whenever the input size is either close to being sorted, or
@@ -71,12 +86,13 @@ public class QuickSort extends Sort {
      * low  --> Starting index
      * high  --> Ending index 
      * */
+
     private void quickSort(ArrayList<Integer> arr, int start, int end) 
     {
 		if(start<end) {
 		/*Put the pivot in its current position , everything to its left is smaller 
 		/everything to its right is larger*/
-		int pivotIndex = partition(arr,start,end);
+		int pivotIndex = randomizedPartition(arr,start,end);
 		//quickSort the left sub array
 		quickSort(arr , start , pivotIndex - 1);
 		//quickSort the right sub array

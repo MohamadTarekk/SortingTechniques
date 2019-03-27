@@ -26,7 +26,9 @@ public class MergeSort extends Sort {
 			lengthOfNewArray *= (k+1);
 			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
 			sortedLength += actualLength;
+			
 			mergeSort(arr, 0, lengthOfNewArray-1);
+			
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<>(sortedLength, time);
@@ -45,25 +47,21 @@ public class MergeSort extends Sort {
 	}
 	
 	private void merge(ArrayList<Integer> arr , int start , int middle , int end) {
-		/*If the last element in the left partition is less than or equal the first element in the right partition
-		 *This mean that all the elements of the left partition is less than the first element in the right parition
-		 *Stick the two arrays together 
-		 */		
+
 		int leftIndex = start;
 		int rightIndex = middle + 1 ;
-		//int tempIndex = 0; //Keep track where we are in the temp array
 		ArrayList<Integer> temp = new ArrayList<>();
-		/*
-		 * When leftIndex = mid we'll have finished traversing the left array , rightIndex = end we'll have finished traversing the right array
-		 * so we want to drop out
-		 */
+		int tempIndex = 0;
 		while(leftIndex<=middle && rightIndex<=end) {
 			if(arr.get(leftIndex) <= arr.get(rightIndex)) {
-				temp.add(arr.get(leftIndex));
+				temp.add(tempIndex,arr.get(leftIndex));
 				leftIndex++;
+				tempIndex++;
 			}else {
-				temp.add(arr.get(rightIndex));
+				temp.add(tempIndex,arr.get(rightIndex));
 				rightIndex++;
+				tempIndex++;
+
 			}
 			/*
 			 * Write the smaller element into the temp array
@@ -71,39 +69,21 @@ public class MergeSort extends Sort {
 		}		
 		//Either of below while loop will execute
 		while(leftIndex<=middle) {
-			temp.add(arr.get(leftIndex));
+			temp.add(tempIndex,arr.get(leftIndex));
 			leftIndex++;
+			tempIndex++;
 		}
 		while(rightIndex <= end) {
-			temp.add(arr.get(rightIndex));
+			temp.add(tempIndex,arr.get(rightIndex));
 			rightIndex++;
+			tempIndex++;
 		}
-        int i = 0;
-        int j = start;
-        //Setting sorted array to original one
-        while(i<temp.size()){
-            arr.set(j, temp.get(i++));
-            j++;
-        }
-		/*
-		
-		 * Handling the remaining element in the array we didn't finish traversing
-		 * {32 , 34} , {33 , 36}
-		 *  {32 , 33 , 34}
-		 *  if we have elements left over in the right array do nothing because we'll copy the temp array
-		 *  to the position that they occupy in the original array
-		 *  if We add the 36 we'll do needless work
-		 */
-		
-		/*
-		 * We copy at position i because if there are any leftover in the left array i is the index
-		 * of the first elements we still haven't handled
-		 * 
-		 * middle - i tell us the number of elements that we didn't copy over into the temp array from the left parition
-		 */
+
+		//Copy from the temp array to the main array
+		for(int i = start , j = 0; j < temp.size() ; i++, j++) {
+			arr.set(i, temp.get(j));
+		}
 	}
-	
-	
 	
 	public void printArray() {
         for(int Integer: arr)

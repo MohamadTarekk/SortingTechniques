@@ -23,6 +23,7 @@ public class SelectionSort extends Sort {
 			lengthOfNewArray *= (k+1);
 			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
 			sortedLength += actualLength;
+			
 		    // One by one move boundary of unsorted subarray 
 		    for (int i = 0; i < lengthOfNewArray-1; i++) {
 		        // Find the minimum element in unsorted array 
@@ -34,6 +35,7 @@ public class SelectionSort extends Sort {
 		        // Swap the found minimum element with the first element 
 		        swap(arr,min_idx,i);
 		    }
+		    
 			long end = System.nanoTime();
 			long time = end - start;
 			Pair<Integer, Long> p = new Pair<>(sortedLength, time);
