@@ -135,7 +135,7 @@ public class TheStage implements Initializable {
                 }
             }
         });
-        visualizeBtn.setOnAction(event -> {
+        /*visualizeBtn.setOnAction(event -> {
             Path currentRelativePath = Paths.get("");
             String path = currentRelativePath.toAbsolutePath().toString() + "\\src\\view\\TheTrick.fxml";
             System.out.println(path);
@@ -151,7 +151,7 @@ public class TheStage implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        });
+        });*/
     }
 
     private void refreshStage() {
