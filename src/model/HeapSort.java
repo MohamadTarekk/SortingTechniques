@@ -15,7 +15,7 @@ public class HeapSort extends Sort {
 	}
 
 	
-	public void buildMaxHeap(ArrayList<Integer> array , int size) {
+	private void buildMaxHeap(ArrayList<Integer> array, int size) {
 		for(int i = size / 2 - 1 ; i >= 0; i--) {
 			heapify(array, i, size);
 		}
@@ -23,7 +23,7 @@ public class HeapSort extends Sort {
   
 
 
-    public void heapify(ArrayList<Integer> array, int index, int size) {
+    private void heapify(ArrayList<Integer> array, int index, int size) {
     	int left = getLeftChild(index);
     	int right = getRightChild(index);
     	int largest = index;
@@ -45,7 +45,7 @@ public class HeapSort extends Sort {
 		int length = arr.size();
 	    long start = System.nanoTime();
 		for(int k = 0 ; k < numberOfArrays ; k++) {
-			int lengthOfNewArray = (int)(length / numberOfArrays);
+			int lengthOfNewArray = (length / numberOfArrays);
 			int actualLength = lengthOfNewArray;
 			lengthOfNewArray *= (k+1);
 			arr = ArrayGenerator.regenerateSameArray(arr , 0, lengthOfNewArray);
@@ -61,16 +61,16 @@ public class HeapSort extends Sort {
 			
 			long end = System.nanoTime();
 			long time = end - start;
-			Pair<Integer, Long> p = new Pair<Integer, Long>(sortedLength , time);
+			Pair<Integer, Long> p = new Pair<>(sortedLength, time);
 			NTime.add(p);
 		}
     }
 	
-	public static int getLeftChild(int i) {
+	private int getLeftChild(int i) {
 		return ((2 * i) + 1);
 	}
 	
-	public static int getRightChild(int i) {
+	private int getRightChild(int i) {
 		return ((2 * i) + 2);
 	}
 	

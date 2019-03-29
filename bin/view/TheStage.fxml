@@ -7,27 +7,25 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="theShowGrid" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
+<GridPane alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TheStage">
     <columnConstraints>
       <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" />
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="360.0" minWidth="360.0" prefWidth="360.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
       <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="10.0" minWidth="10.0" prefWidth="10.0" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="130.0" minHeight="130.0" prefHeight="130.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="460.0" minHeight="460.0" prefHeight="460.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <LineChart fx:id="chart" createSymbols="false" legendVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="620.0" stylesheets="@../resources/ChartStylesheet.css" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <LineChart fx:id="chart" createSymbols="false" legendVisible="false" maxHeight="450.0" maxWidth="450.0" minHeight="450.0" minWidth="450.0" prefHeight="450.0" prefWidth="450.0" stylesheets="@../resources/ChartStylesheet.css" GridPane.columnIndex="2" GridPane.rowIndex="2">
             <xAxis>
                 <CategoryAxis label="Number of elements" side="BOTTOM" />
             </xAxis>
@@ -36,44 +34,23 @@
 
             </yAxis>
         </LineChart>
-      <HBox alignment="CENTER_LEFT" maxHeight="130.0" minHeight="130.0" prefHeight="130.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-         <children>
-            <Pane prefHeight="130.0" prefWidth="35.0" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Pane minHeight="15.0" minWidth="300.0" prefHeight="20.0" prefWidth="300.0" />
-                  <ImageView fitHeight="120.0" fitWidth="300.0">
-                     <image>
-                        <Image url="@../resources/Header3.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </VBox>
-            <Pane prefHeight="130.0" prefWidth="35.0" />
-            <ImageView fitHeight="102.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" rotate="-129.2">
-               <image>
-                  <Image url="@../resources/arrows.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <children>
             <HBox prefHeight="60.0" prefWidth="200.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Pane maxWidth="35.0" minWidth="80.0" prefHeight="200.0" prefWidth="35.0" />
+                  <Pane maxWidth="55.0" minWidth="55.0" prefHeight="47.0" prefWidth="55.0" />
                   <ComboBox fx:id="techniqueCmb" prefHeight="30.0" prefWidth="185.0" promptText="Sorting Technique..." />
-                  <Pane maxWidth="50.0" minWidth="50.0" prefHeight="200.0" prefWidth="50.0" />
-                  <Button fx:id="sortBtn" minWidth="140.0" mnemonicParsing="false" onAction="#sortBtnClicked" prefHeight="30.0" prefWidth="140.0" text="Sort &amp; Plot" />
+                  <Pane maxWidth="85.0" minWidth="85.0" prefWidth="85.0" />
+                  <Button fx:id="sortBtn" minWidth="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="140.0" text="Sort &amp; Plot" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Pane maxWidth="35.0" minWidth="80.0" prefHeight="200.0" prefWidth="35.0" />
+                  <Pane maxWidth="55.0" minWidth="55.0" prefHeight="47.0" prefWidth="55.0" />
                   <TextField fx:id="createSetText" prefHeight="30.0" prefWidth="185.0" />
-                  <Pane maxWidth="50.0" minWidth="50.0" prefHeight="200.0" prefWidth="50.0" />
-                  <Button fx:id="createSetBtn" mnemonicParsing="false" onAction="#createSetBtnClicked" prefHeight="31.0" prefWidth="140.0" text="Generate set" />
+                  <Pane maxWidth="85.0" minWidth="85.0" prefWidth="85.0" />
+                  <Button fx:id="createSetBtn" mnemonicParsing="false" prefHeight="31.0" prefWidth="140.0" text="Generate set" />
                </children>
             </HBox>
          </children>
@@ -82,7 +59,6 @@
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.rowIndex="2" />
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.rowIndex="3" />
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.rowIndex="4" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.rowIndex="5" />
       <VBox maxWidth="500.0" minWidth="500.0" prefHeight="200.0" prefWidth="500.0" GridPane.columnIndex="2">
          <children>
               <Pane fx:id="toolbar2" maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #0000b3;">
@@ -103,14 +79,9 @@
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="3">
          <children>
-            <Pane fx:id="toolbar4" maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" />
-         </children>
-      </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4">
-         <children>
               <Pane fx:id="toolbar1" maxHeight="50.0" minHeight="60.0" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #0000b3;">
                <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="360.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="300.0">
                      <children>
                         <Pane prefHeight="200.0" prefWidth="50.0">
                            <children>
@@ -149,18 +120,16 @@
                </children></Pane>
          </children>
       </VBox>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.rowIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" GridPane.rowIndex="3" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" GridPane.rowIndex="4" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-        <Pane prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5">
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.rowIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+        <Pane prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="4">
          <children>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutY="5.0">
                <image>
@@ -178,16 +147,26 @@
             </Pane>
          </children>
         </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="6" GridPane.rowIndex="6" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" GridPane.rowIndex="6" />
-      <Pane fx:id="magicianPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0000b3;" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+      <Pane fx:id="magicianPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
          <children>
-            <ImageView fitHeight="312.0" fitWidth="258.0" layoutX="51.0" layoutY="-8.0">
+            <ImageView fitHeight="312.0" fitWidth="258.0" layoutX="42.0" layoutY="42.0">
                <image>
                   <Image url="@../resources/WizardHat.png" />
                </image>
             </ImageView>
-            <Pane layoutX="80.0" layoutY="185.0" prefHeight="200.0" prefWidth="200.0">
+            <Label layoutX="42.0" layoutY="-6.0" text="Do you beleive in">
+               <font>
+                  <Font name="Agency FB Bold" size="40.0" />
+               </font>
+            </Label>
+            <Label layoutX="104.0" layoutY="42.0" text="MAGIC?">
+               <font>
+                  <Font name="Agency FB Bold" size="40.0" />
+               </font>
+            </Label>
+            <Pane layoutX="71.0" layoutY="230.0" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <ImageView fitHeight="100.0" fitWidth="200.0" layoutY="50.0">
                      <image>
@@ -201,38 +180,17 @@
                   </ImageView>
                </children>
             </Pane>
-            <Label layoutX="72.0" layoutY="391.0" text="You will witness some">
+         </children>
+      </Pane>
+      <Pane maxHeight="100.0" maxWidth="360.0" minHeight="100.0" minWidth="360.0" prefHeight="100.0" prefWidth="360.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <children>
+            <Button fx:id="visualizeBtn" layoutX="113.0" layoutY="50.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="134.0" text="Shall we?" />
+            <Label layoutX="72.0" layoutY="-4.0" text="You will witness some">
                <font>
                   <Font name="Agency FB Bold" size="29.0" />
                </font>
             </Label>
-            <ImageView fx:id="sortingHat" fitHeight="379.0" fitWidth="360.0" layoutY="41.0" visible="false">
-               <image>
-                  <Image url="@../resources/sortingHat.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
-      <Pane maxHeight="100.0" maxWidth="360.0" minHeight="100.0" minWidth="360.0" prefHeight="100.0" prefWidth="360.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
-         <children>
-            <ComboBox fx:id="visualCmb" layoutX="105.0" layoutY="-1.0" prefHeight="30.0" prefWidth="150.0" promptText="Choose a trick" />
-            <Button fx:id="visualizeBtn" layoutX="113.0" layoutY="50.0" mnemonicParsing="false" onAction="#visualizeBtnClicked" prefHeight="31.0" prefWidth="134.0" text="Shall we?" />
-         </children>
-      </Pane>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-         <children>
-            <Pane prefHeight="56.0" prefWidth="360.0" />
-            <Label fx:id="label1" text="Do you beleive in">
-               <font>
-                  <Font name="Agency FB Bold" size="40.0" />
-               </font>
-            </Label>
-         </children>
-      </VBox>
-      <Label fx:id="label2" text="MAGIC?" GridPane.columnIndex="4" GridPane.rowIndex="2">
-         <font>
-            <Font name="Agency FB Bold" size="40.0" />
-         </font>
-      </Label>
     </children>
 </GridPane>

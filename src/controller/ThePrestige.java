@@ -23,8 +23,8 @@ public class ThePrestige extends Application {
         String path = currentRelativePath.toAbsolutePath().toString() + "\\src\\view\\TheStage.fxml";
         Parent root = FXMLLoader.load(new File(path).toURI().toURL());
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1000, 800));
+        primaryStage.setTitle("Wizard Hat ...");
+        primaryStage.setScene(new Scene(root, 900, 670));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
