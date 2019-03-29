@@ -1,15 +1,10 @@
 package view;
 
 import controller.SortVisualFactory;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import view.visualization.BubbleSortVisual;
 import view.visualization.SortVisual;
 
