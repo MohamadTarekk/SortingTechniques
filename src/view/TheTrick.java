@@ -1,6 +1,6 @@
 package view;
 
-import controller.SortVisualFactory;
+import view.visualization.SortVisualFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;

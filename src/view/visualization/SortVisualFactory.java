@@ -1,7 +1,4 @@
-package controller;
-
-import view.visualization.BubbleSortVisual;
-import view.visualization.SortVisual;
+package view.visualization;
 
 public class SortVisualFactory {
 
