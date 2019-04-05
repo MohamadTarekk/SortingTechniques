@@ -37,7 +37,8 @@ public class BubbleSortVisualization extends PApplet {
 		    if (i==innerLoopCounter + 1)
 			      fill(245, 255, 250);
 		    if (i>lengthOfArray)
-			      fill(85, 82, 239);
+			      fill(102, 230, 187);
+			      //fill(255, 165, 0);
 		    rect(i*xLocation, height-toBeSorted[i], widthOfRect , toBeSorted[i]);
 		    delay(15);
 		}
