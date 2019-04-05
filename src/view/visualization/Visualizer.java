@@ -1,21 +1,19 @@
 package view.visualization;
 
 import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 
 public class Visualizer extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	BubbleSortVisualization bsv = null;
 
-    
     public Visualizer() {
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         init();
     }
     
     private void init() {
-        bsv = new BubbleSortVisualization();
+        BubbleSortVisualization bsv = new BubbleSortVisualization();
         bsv.frame = this;
         setTitle("Bubble Sort Visualization");
         setResizable(false);

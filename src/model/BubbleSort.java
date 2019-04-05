@@ -52,9 +52,4 @@ public class BubbleSort extends Sort {
 		Collections.swap(array, i, j);
 	}
 	
-	public void printArray() {
-        for(int Integer: arr)
-        	System.out.print(Integer + "    ");
-        System.out.println();
-	}
 }

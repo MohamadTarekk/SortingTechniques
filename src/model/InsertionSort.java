@@ -39,15 +39,4 @@ public class InsertionSort extends Sort {
 			NTime.add(p);
 		}
 	}
-	
-	
-	
-	public void printArray() {
-        for(int Integer: arr)
-        	System.out.print(Integer + "    ");
-        System.out.println();
-	}
-
-	
-	
 } 

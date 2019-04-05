@@ -64,7 +64,10 @@ public class TheStage implements Initializable {
         initializeToolbarMotion(toolbar2);
         initializeToolbarMotion(toolbar3);
         initializeToolbarMotion(toolbar5);
-        closeIcon.setOnMouseReleased(event -> ((Stage)(closeIcon.getScene().getWindow())).close());
+        closeIcon.setOnMouseReleased(event -> {
+            ((Stage)(closeIcon.getScene().getWindow())).close();
+            System.exit(0);
+        });
         minimizeIcon.setOnMouseReleased(event -> ((Stage)(minimizeIcon.getScene().getWindow())).setIconified(true));
         refreshIcon.setOnMouseReleased(event -> refreshStage());
     }
@@ -105,9 +108,6 @@ public class TheStage implements Initializable {
                 if (i>0) {
                     arrayGenerator = new ArrayGenerator(i);
                     readyToPlot = true;
-                    //newSelection = false;
-                    //readyToVisualize = false;
-                    //techniqueCmb = initializeComboBox();
                     System.out.println("heeeeeeerreeee!!!");
                 }
             }
@@ -129,23 +129,6 @@ public class TheStage implements Initializable {
                 }
             }
         });
-        /*visualizeBtn.setOnAction(event -> {
-            Path currentRelativePath = Paths.get("");
-            String path = currentRelativePath.toAbsolutePath().toString() + "\\src\\view\\TheTrick.fxml";
-            System.out.println(path);
-            try {
-                Parent root = FXMLLoader.load(new File(path).toURI().toURL());
-                Stage stage = new Stage();
-                stage.setTitle("Visualization");
-                stage.setScene(new Scene(root, 600, 400));
-                stage.setResizable(false);
-                stage.show();
-                // Hide this current window (if this is what you want)
-                //((Node)(event.getSource())).getScene().getWindow().hide();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });*/
         visualizeBtn.setOnAction(event -> {
         try {
         	new Visualizer();

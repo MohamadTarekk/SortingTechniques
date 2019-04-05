@@ -5,10 +5,10 @@ import processing.core.*;
 public class BubbleSortVisualization extends PApplet {
 	private static final long serialVersionUID = 1L;
 
-	int[] toBeSorted;
-	int innerLoopCounter;
-	int xLocation;
-	int widthOfRect , lengthOfArray;
+	private int[] toBeSorted;
+	private int innerLoopCounter;
+	private int xLocation;
+	private int widthOfRect , lengthOfArray;
 	
 	public void setup() {
 		size(600,500);
@@ -27,19 +27,19 @@ public class BubbleSortVisualization extends PApplet {
 		
 		if(lengthOfArray == -2)
 			return;
-		background(0);
+		background(57, 56, 102);
 		//System.out.println("outer");
 		
 		for(int i = 0 ; i < toBeSorted.length ; i++) {
-			fill(255);
+			fill(135, 206, 250);
 		    if (i==innerLoopCounter)
-		      fill(255,255,0);
+		      fill(255, 255, 66);
 		    if (i==innerLoopCounter + 1)
-			      fill(0,255,0);
+			      fill(245, 255, 250);
 		    if (i>lengthOfArray)
-			      fill(204,0,0);
+			      fill(85, 82, 239);
 		    rect(i*xLocation, height-toBeSorted[i], widthOfRect , toBeSorted[i]);
-		    delay(70);
+		    delay(25);
 		}
 		
 		if(innerLoopCounter >= lengthOfArray) {

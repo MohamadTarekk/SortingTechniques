@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public abstract class Sort {
 
-    protected ArrayList<Integer> arr;
+    ArrayList<Integer> arr;
     ArrayList<Pair<Integer,Long>> NTime = new ArrayList<>(20);
     int numberOfArrays = 10;
     int sortedLength = 0;
