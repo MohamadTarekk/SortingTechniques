@@ -15,5 +15,5 @@ WizardHat, also, provides a visualization for the sorting techniques mentioned a
 
 ![wizardSort](https://user-images.githubusercontent.com/42680230/56058077-c1bad000-5d60-11e9-9f88-6d186023ed62.PNG)
 
-####Used library: 
+#### Used library: 
 [Processing](https://processing.org/).
